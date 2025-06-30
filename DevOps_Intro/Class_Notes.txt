@@ -1,0 +1,317 @@
+DevOps with Multicloud and GenAI
+
+Start Date: 30th June 2025
+
+Day 1: Introduction to DevOps :
+
+What is DevOps?
+
+	IT Software Development Process :
+
+	
+	Software Applications :
+	
+		- Desktop Applications
+		
+		- Web Applications
+		
+		- Mobile Applications
+		
+		- Embedded Applications
+		
+	
+	SDLC - Software Development Life Cycle :
+	
+	
+		- Requirement Analysis 
+		
+		- Design & Document 
+		
+		- Code/Development 
+		
+		- Testing 
+		
+		- Implementation to Production 
+		
+		- Monitor/Maintain 
+	
+	
+
+	- Desktop Applications :
+		
+		-  Super Market Billing Application :
+		
+				Functions :
+				
+					-> User Interface Design 
+					-> Inventory 
+					-> Payment 
+						- CASH Payment 
+						- CARD Payment 
+					-> Stock Database 
+					-> Billing 
+					
+					
+	- Waterfall Model :::
+		
+		- It strictly follows the Top-Down Approach & It is Linear in fashion.
+		- It was used to develop Monolith Applications - Architecture
+
+			Eg.: 
+			
+				-  Super Market Billing Application :
+				
+						Functions/Modules :
+						
+							-> User Interface Design 
+							-> Inventory 
+							-> Payment 
+								- CASH Payment 
+								- CARD Payment 
+								
+								--> ***Online Payment & UPI Payment Mode
+								
+							-> Stock Database 
+							-> Billing 					
+					
+		- Main Project :
+		
+			- Requirement Analysis 		--> 			12 Months
+			
+			- Design & Document 
+			
+			- Code/Development 					5th Month 
+			
+			- Testing 
+			
+			- Implementation to Production 
+			
+			- Monitor/Maintain		
+			
+			
+		- Enhancement Project :			--> ***Online Payment & UPI Payment Mode
+		
+			- Requirement Analysis 		
+			
+			- Design & Document 
+			
+			- Code/Development 					
+			
+			- Testing 
+			
+			- Implementation to Production 
+			
+			- Monitor/Maintain	
+
+
+
+	- AGILE Methodologies :::
+	
+		- Each and every function/Module is called as Iteration
+
+			
+		- Iteration 1 : User Interface Design 
+			
+			- Requirement Analysis 
+			
+			- Design & Document 
+			
+			- Code/Development 
+			
+			- Testing 
+			
+			- Implementation to Production with proper approvals
+			
+			- Monitor/Maintain 
+
+		- Iteration 2 : Inventory
+			
+			- Requirement Analysis 
+			
+			- Design & Document 
+			
+			- Code/Development 
+			
+			- Testing 
+			
+			- Implementation to Production with proper approvals
+			
+			- Monitor/Maintain 
+			
+		- Iteration 3 : CARD Payment 
+			
+			- Requirement Analysis 
+			
+			- Design & Document 
+			
+			- Code/Development 
+			
+			- Testing 
+			
+			- Implementation to Production with proper approvals 
+			
+			- Monitor/Maintain 
+			
+		- Iteration 4 : CASH Payment
+			
+			- Requirement Analysis 
+			
+			- Design & Document 
+			
+			- Code/Development 
+			
+			- Testing 
+			
+			- Implementation to Production with proper approvals
+			
+			- Monitor/Maintain 
+			
+		- nth Iteration :		--> ***Online Payment & UPI Payment Mode
+		
+			- Requirement Analysis 		
+			
+			- Design & Document 
+			
+			- Code/Development 					
+			
+			- Testing 
+			
+			- Implementation to Production with proper approvals
+			
+			- Monitor/Maintain	
+			
+			
+			Using AGILE Methodologies :
+			
+				- We can able to achieve :
+				
+					- Continuous Development 
+					- Continuous Integration 
+					- Continuous Testing
+					- Continuous Delivery 
+						- Expects Manual Approvals for Production Release
+					
+				- We cannot achieve :
+				
+					- Continuous Deployment 
+						- Never expect any Manual Approvals for Production Release
+						- The Changes can be released to Production Environments without any Manual intervension.
+						
+						
+	- DevOps :
+	
+		-> DevOps is a Software Development Strategy, which helps to promote the collaboration between the teams like Development Team and Operations Team to achieve Continuous Development, Continuous Integration, Continuous Testing, Continuous Delivery, Continuous Deployment and Continuous Monitoring in more automate fashion.
+		
+	
+	- How to Implement DevOps ?	
+	
+		- DevOps Team 		
+			- Infra-Structure Management Team 
+			- Application Development Team 
+			- Testing Team 
+			- Release Management Team 
+			- Production Support Team 
+			- Production Monitoring Team
+			- IT Security Team
+			
+	- Environments :::
+	
+		Non-Prod Environments						 ==>					Production Environments	
+	
+			- Dev Environments
+			- Build Environments
+			- Testing Environments
+				- QA 
+				- UAT 							===============>			Production Servers
+				
+				
+	- Application Architecture :::
+	
+		- Monolith Application Architecture ::
+		
+			- Is tightly coupled Application Architecture 
+			- All the Functions/Modules are create in a single Application which cannot be splitted.
+			- The Entire Application is developed tested and implemented all together.
+			- Using Monolith Application Architecture we can achieve only Continuous Delivery not Continuous Deployment.
+		
+		- Micro-Service Based Application Architecture ::
+		
+			- Is loosely coupled Application Architecture
+			- All the Functions/Modules are create in a independently without impacting others
+			- Using Micro-Service Based Application Architecture we can Continuous Deployment
+			
+			
+	- DevOps Stages :::
+	
+		- Continuous Development :		
+			- It is a capability of Application Team to Continuously Develop the code without impacting others.
+			- This help to improve the Developers' Productivity.
+			
+			What is role of Developer?
+			
+			- Create Source Code 
+			- Perform Application Build (Process of Compiling the Source Code & Create Artifacts(Binaries - *.war/*.jar/*.dll/*.exec)
+			- Unit Testing 
+			- Promote the Changes to Testing Environments
+			- Send Email Notifications to Concerned Team 
+			
+			Using DevOps Approach :
+			
+			- Create Source Code 
+			- Save the Source Code in a Source Code Repository(Github)
+			
+			- Automate :
+				- Perform Application Build (Process of Compiling the Source Code & Create Artifacts(Binaries - *.war/*.jar/*.dll/*.exec)
+				- Unit Testing 
+				- Promote the Changes to Testing Environments
+				- Send Email Notifications to Concerned Team 
+				
+			- Tools :			
+				- IDEs - Intergrated Development Environments - Eclipse based IDEs, Visual Studio, Visual Studio Code, Pycharm, Intellj
+				- Build Tools - Maven 
+				- Unit Tools - Junit / TestNG
+		
+		
+		- Continuous Integration :	
+			- It is a capability of Application Team to Continuously Integrate the Changes for further Testing and Implementations.
+			
+			- Automate :
+				- Perform Application Build (Process of Compiling the Source Code & Create Artifacts(Binaries - *.war/*.jar/*.dll/*.exec)
+				- Unit Testing 
+				- Promote the Changes to Testing Environments
+				- Send Email Notifications to Concerned Team 	
+
+			- Tools :			
+				- IDEs - Intergrated Development Environments - Eclipse based IDEs, Visual Studio, Visual Studio Code, Pycharm, Intellj
+				- Build Tools - Maven 
+				- Unit Tools - Junit / TestNG				
+				- Jenkins/Ansible/Docker/Kubernetes/Azure Pipelines/AWS CodePipelines
+			
+		
+		- Continuous Testing :
+			- It is a capability of Testing Team to Continuously Test the Changes.
+			
+			- Tools :
+				- TestNG 
+				- Selenium
+				- Jenkins/Azure Pipelines/AWS CodePipelines				
+		
+Next: 
+		
+		- Continuous Delivery/Deployment :	
+		
+		- Continuous Monitoring :
+		
+
+		
+			
+		
+			
+		
+	
+		
+	
+	
+		
+				
+					
