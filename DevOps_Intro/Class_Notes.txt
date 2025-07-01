@@ -301,8 +301,135 @@ Next:
 		- Continuous Delivery/Deployment :	
 		
 		- Continuous Monitoring :
-		
 
+######################
+Day 2 : 1st July 2025
+######################
+
+		- Continuous Delivery/Deployment :	
+	
+			--> Both are used to release the changed to Production environments
+	
+			- Continuous Delivery :			
+				- This expects manual intervension/approvals to release the changes to prod.
+				- Expected downtime during production release.
+				
+			- Eg.: 
+			
+				Banking Applications - Online Banking/
+				
+				Release Window: 4-6hrs => - 4-6hrs of Downtime
+					- v1.0 LIVE 
+					- v2.0 New Release
+					
+					Fix the issues
+					Revert
+
+					
+			- Continuous Deployment :
+				- This never expects manual intervension/approvals to release the changes to prod.
+				- Without any downtime we can achieve production releases 
+				- Zero downtime.
+				- Using Micro-Service based Application Architecture
+
+			- Eg.: 
+			
+				- Facbook/Netflix/Google/Amazon...................				
+			
+			- Tools :
+			
+				- Docker/Kubernetes
+				
+				- Jenkins/Ansible/Azure Pipelines/AWS CodePipelines
+
+			- Environments :::
+			
+				Non-Prod Environments						 ==>				Production Environments	
+			
+					- Dev Environments
+					- Build Environments
+					- Testing Environments
+						- QA 
+						- UAT 							===============>			Production Servers - 1,2,3,4,5,6
+																					
+																					v1.0 - LIVE ==> 
+
+																					v2.0 -> 
+
+	www.amazon.in :::
+	
+	sign-up --> Micro-Service1 - developer1 - code the changes - unit test - promote the chages to test env - automated testing - release to prod
+	sign-in --> Micro-Service2 - developer2 - code the changes - unit test - promote the chages to test env - automated testing - release to prod
+	search 
+	add to cart 
+	place the order 
+	payment 
+	confirm the order 
+	track	
+
+
+
+	- Continuous Monitoring :::	
+	
+		- Is it ensure High Availability of Production Environments.
+		- To Ensure Buniness Continuity
+		
+			- Infra-Structure Monitoring :::
+				
+				- Tools : Prometheus/Grafana/Dynatrace/Splunk/Nagios
+				
+					-> CPU Utilization 	--> Threshold Limit ==> 75%
+										--> Alert/Notifications based on Threshold limit
+			
+			- Application Monitoring :
+			
+				- Tools : AppDynamics/DataDog 				
+				
+				
+	- Infra-Structure Management :::
+	
+		- Resource Provisioning/Creation IAC --> Terraform/AWS Cloudformation/ARM
+		
+		- Configuration Management Tools IAC --> Ansible/Chef/Puppet
+		
+				Using IAC Tools : Infra-Structure As Code
+
+
+	 DevOps Life-Cycle :
+	 
+	 
+	Developer - Create the Source Code 
+		
+		DevOps CICD Pipeline :
+		
+			SCM_Checkout  -> Build -> Unit Testing -> Promote to Test Environments -> Automated Testing -> Deployed to Prod -> Continuous Monitoring
+			
+			
+	DevOps Tools :
+	
+		 Open-Source DevOps Tools :
+		 
+			GIT/GITHub/Jenkins/Ansible/Docker/Kubernetes/Prometheus/Grafana/Terraform
+		 
+		 
+		 Managed Services : SAAS 
+		 
+			AWS 	: AWS CodeBuild/CodeDeploy/CodePipelines
+			
+			Azure 	: Azure DevOps Services 
+			
+	
+	DevOps :
+		-> DevOps is a Software Development Strategy, which helps to promote the collaboration between the teams like Development Team and Operations Team to achieve Continuous Development, Continuous Integration, Continuous Testing, Continuous Delivery, Continuous Deployment and Continuous Monitoring in more automate fashion.																																
+					
+	DevOps is all about :
+	
+			- People 
+			- Process 
+			- Tools
+			
+			
+	Waterfall/AGILE/DevOps/DevSecOps/GitOps/SRE/AIOps/MLOps.....
 		
 			
 		
