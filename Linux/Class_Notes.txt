@@ -1,0 +1,200 @@
+#######################
+Day 3 : 11th July 2025
+#######################								
+								
+	Module 2 : Fundamentals of Linux Operating System	
+	
+	Linux on DevOps perspective!
+
+		1. Overview of Linux
+		2. Linux Architecture
+		3. Linux Distributions
+		4. Basic Linux Commands
+		5. File Permission Management
+		6. User Creation
+		7. Shell Scripts
+		8. SSH and VI Utility
+	
+	Lab: AWS Free Tier Account
+	
+		AWS Cloud Platform:
+		
+			- Create an AWS Account - Free Tier - 12 Months 
+
+				- Active Email_ID 
+				- Active Mobile Number 
+				- Active Debit/Credit Card enabled with International Transactions 
+
+			https://aws.amazon.com/console/
+			
+			
+		Login to AWS Console ::::
+			https://aws.amazon.com/console/
+			- Login as a root user
+				- email_id 				# Used during the registration
+				- password 				# Created during the registration
+				
+				
+		AWS Console is a Web Service to work with AWS Cloud Resources 
+			https://aws.amazon.com/console/	
+		
+									
+		Cloud Service Providers :					
+			AWS/Azure/GCP/Digital Ocean/Oracle/IBM................		
+			
+			AWS Regions :
+				==> Geo Location!			
+				
+			EC2 Service :
+			
+				==> Used to Create EC2 Instances (Virtual Machine)
+				
+				
+			1. Create EC2 Instances (Virtual Machine)
+					- Based on Linux OS Distribution
+			
+			2. Connect to EC2 Instances (Virtual Machine)
+			
+			3. Login to EC2 Instances (Virtual Machine)
+					- Working with Linux Operating System
+		
+
+	1. Overview of Linux
+		
+		- Operating System : Is an interface between the User Applications and Underlying Hardware 
+		
+		Types of OS :
+		
+			- Windows 
+			- Mac 
+			- Linux 
+			- Android
+		
+	2. Linux Features/Architecture :
+		
+	Linux Operating System 
+		- Open-Source 
+		- Is Secured 
+		- Linux OS was created based on the Unix Operating System 
+		- Is an interface between the user applications and underlying Hardware.
+		- Linux OS is based on the Command User Interface
+		- Core of Linux OS is called kernel!
+			Components of Linux OS Architecture
+				- Networking 
+				- Storage 
+				- IPC - Inter Process Communication
+				- User Management 
+				- Security Management 
+				- Control Groups 
+				- Namespace 
+				- Process 	
+
+
+		- Command Line Interface 
+	
+		3. Linux Distributions	
+		
+			- Flavors of Linux OS 
+			
+				- Centos / RHEL 
+				- Debian / Ubuntu 
+				- Fedora									
+
+			Package Management - Package Managers :::
+				- Package Managers are used to install/Uninstall/Upgrade the Packages/software 
+			
+					- Centos / RHEL 		===> 	yum package Manager 
+					- Debian / Ubuntu 		===>	apt/apt-get package Manager 
+					- Fedora				===>	dnf (Latest Version of Fedora)
+													yum (Previous Version of Fedora)
+					
+				- Package Managers can be executed only by the root user on Linux
+					
+					- Package Manager - apt/yum/dnf ==> can Be executed as a root user.
+					
+					- TO work with Package Manager :
+						- Elevate the Access to Root Level 
+							- sudo -i			# This Command is used to elevate the access to root level
+								
+	Learn Linux on DevOps Perspectives :
+	
+		What the Role of DevOps Team/Engineer on Linux.
+		
+			- All the DevOps Tools can be installed and Managed in Linux Machines 
+		
+		What is your role here ????
+		
+			- Install all the DevOps Tools 
+			- Package Management - Periodically Upgrade/Uninstall - Backup of the Tools
+			- Managing Remote Servers 
+				- Client Server Architecture 
+				- Server1 (VM)
+					- Client1,2,3,4,5,6
+					
+			- As a DevOps Team we can Manage the Linux Machines
+			
+				- Package Management 
+				- File Management 
+				- User Management 
+				- Access Management 
+				- Remote Servers Management 
+				- Process Automation(Shell Scripting)								
+					
+	Working with Linux :::
+
+		- Package Management :::
+
+			- Package Managers are used to install/Uninstall/Upgrade the Packages/software 
+		
+				- Centos / RHEL 		===> 	yum package Manager 
+				- Debian / Ubuntu 		===>	apt/apt-get package Manager 
+				- Fedora				===>	dnf (Latest Version of Fedora)
+												yum (Previous Version of Fedora)
+												
+			- Package Managers can be executed only by the root user on Linux
+			
+				- TO work with Package Manager :
+					- Elevate the Access to Root Level 
+						- sudo -i			# This Command is used to elevate the access to root level
+		
+			- To Install any tool/package :
+			
+				Install Pre-requisites	
+				Install Actual Tool
+				Post Installation Actions				
+		
+					Eg.: Tomcat WAS :::: 
+					
+						Install Pre-requisites			===> jdk 
+						
+						Install Actual Tool				===> Installed Tomcat 
+						
+						Post Installation Actions		===> Started Tomcat 
+		
+	Working with Linux :::
+				
+		1. Create EC2 Instances (Virtual Machine)
+				- Based on Linux OS Distribution
+				
+				- Login to AWS Console 
+				- Go to EC2 Instance Dashboard 
+				- Launch EC2 Instances.
+				
+					- Parameters to Launch AWS EC2 Instances :
+						- Name/Tag
+						- Choose Ubuntu v22.04 AMI 
+						- t2.micro Instance Type 
+						- Key-Pair 
+						- No. Of Resource  = 1
+				
+Next :
+		
+		2. Connect to EC2 Instances (Virtual Machine)
+		
+		3. Login to EC2 Instances (Virtual Machine)
+				- Working with Linux Operating System
+			
+				
+			
+			
+		
