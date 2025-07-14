@@ -194,7 +194,259 @@ Next :
 		3. Login to EC2 Instances (Virtual Machine)
 				- Working with Linux Operating System
 			
-				
+
+
 			
+#######################
+Day 4 : 14th July 2025
+#######################					
+
+		1. Create EC2 Instances (Virtual Machine)
+				- Based on Linux OS Distribution
+				
+				- Login to AWS Console 
+				- Go to EC2 Instance Dashboard 
+				- Launch EC2 Instances.
+				
+					- Parameters to Launch AWS EC2 Instances :
+						- Name/Tag
+						- Choose Ubuntu v22.04 AMI 
+						- t2.micro Instance Type 
+						- Key-Pair 
+						- No. Of Resource  = 1
+						
+		2. Connect to EC2 Instances (Virtual Machine)
+		
+			Perform SSH(Secure SHell) Connection to EC2 Instance :
+			
+				=> Host_Name 										# Public_IP_Address of EC2 Instance
+				=> User_Name 										# ubuntu for Ubuntu Machine
+				=> User Credentials	(Authentication Type)
+						- Password based Authentication
+						- Token Based Authentication
+						- Key Based Authentication
+							- SSH Keys: Private Keys & Public Keys
+						- Passwordless Authentication
+		
+			- EC2 instance Connect Option 
+			
+			- SSH Agents (In Windows Machine) 
+				- Putty/MobaXterm				Windows Users Install this in Local Machine
+					==> https://mobaxterm.mobatek.net/download-home-edition.html
+		
+			- Terminal ::
+				- Command Prompt / Mac Terminal
+				Eg.: 
+						Open Command Prompt / Mac Terminal
+
+						Locate your private key file. The key used to launch this instance is aws2025-keypair1.pem
+
+						Run this command, if necessary, to ensure your key is not publicly viewable.
+						chmod 400 "aws2025-keypair1.pem"
+
+						Connect to your instance using its Public DNS:
+						ec2-65-0-183-132.ap-south-1.compute.amazonaws.com
+
+						Example:
+
+						ssh -i "aws2025-keypair1.pem" ubuntu@ec2-65-0-183-132.ap-south-1.compute.amazonaws.com		
+
+		
+		3. Login to EC2 Instances (Virtual Machine)
+				
+				
+	
+	- Working with Linux Operating System :::
+	
+		Misc Linux Commands :
+
+		
+	- As a DevOps Team we can Manage the Linux Machines
+	
+	
+	- Package Management ::::
+		
+			- Package Managers can be executed only by the root user on Linux
+			
+				- To work with Package Manager :
+					- Elevate the Access to Root Level 
+						- sudo -i			# This Command is used to elevate the access to root level
+			
+			- Package Managers are used to install/Uninstall/Upgrade the Packages/software 
+		
+				- Centos / RHEL 		===> 	yum package Manager 
+				- Debian / Ubuntu 		===>	apt/apt-get package Manager 
+				- Fedora				===>	dnf (Latest Version of Fedora)
+												yum (Previous Version of Fedora)	
+
+
+				apt install <package_name> 		# git/jenkins/ansible 
+				
+				apt update 
+				
+				apt remove <package_name>
+				
+				sudo -i					# This Command is used to elevate the access to root level
+				apt update 				# To update the default packages!
+				
+				Linux root User 		# Admin User.
+				
+				Eg.: 
+				
+					sudo apt update 	# Run apt package manager as a root user.
+					
+					
+				- To Install any tool/package :
+				
+					Install Pre-requisites	
+					Install Actual Tool
+					Post Installation Actions				
+			
+						Eg.: Tomcat WAS :::: 
+						
+							Install Pre-requisites			===> jdk 
+							
+							Install Actual Tool				===> Installed Tomcat 
+							
+							Post Installation Actions		===> Started Tomcat 				
+					
+			How to Install/Manage Packages ? :::
+			
+			- Elevate the Access to Root Level
+				sudo -i 					# This Command is used to elevate the access to root level
+				
+			- apt update 					# Used update the default packages
+			
+			- apt install openjdk-17-jre	# Install Java Package 
+
+			- apt install openjdk-17-jre -y	# Tool
+
+			- apt install git -y			# Tool
+	
+		
+			- Linux Package can be a standalone Tool / Service 
+		
+		
+				Eg.: 
+					Tools 		: git,jdk,maven 
+					
+					Services 	: jenkins,nginx,tomcat,httpd		# Can be accessible thru web-browser
+																	# It runs in its default Port_Number
+					
+			- Linux Application Service(nginx/Jenkins) 		
+			
+				- Start / Stop / Enable / disable / Status / restart 
+				
+				systemctl status nginx 
+				
+				systemctl start nginx
+				
+				systemctl stop nginx
+				
+				systemctl enable nginx		# Used to define the service as as start up service
+		
+				systemctl disable nginx		# Used to remove the service from the start-up task list
+				
+				systemctl restart nginx				
+
+				- apt install git				# Install git 
+				
+				- apt remove git 				# Uninstall git 
+				
+				- apt upgrade git 				# Used to upgrade git
+			
+			
+				Package :
+				
+					- Stand-alone Tool			Eg.: git
+					- Service					Eg.: tomcat/nginx/jenkins/docker 
+			
+				which nginx						# Used to get the path of installation ?
+				
+				which git 
+				
+				git --version
+
+
+	- File Management :::
+	
+			Navigate to Directories/Folders :::
+
+				- pwd				# Get the Present Working Directory
+
+				- cd				# Change Directory
+				
+				- cd <dir_name> 	# Change to a specific directory				
+				
+				- cd /				# This command will take to the root directory			
+			
+				- cd ~				# This command will take to the home directory(Default Directory) of the specific linux user
+									Eg.: 	ubuntu 	===> /home/ubuntu 
+		
+									root	===> /root
+									
+				- cd .. 			# Back to previous directory
+	
+				- ls 				# Is to List the files and Directories 
+				
+				- ll				# Long List 
+
+
+    1  apt update
+    2  exit
+    5  sudo apt install openjdk-17-jre
+    6  clear
+    7  apt install git -y
+    8  clear
+    9  apt install nginx
+   10  clear
+   11  systemctl status nginx
+   12  systemctl stop nginx
+   13  systemctl status nginx
+   14  clear
+   15  git --version
+   16  java --version
+   17  nginx -version
+   18  which nginx
+   19  which git
+   20  systemctl status nginx
+   21  clear
+   22  l
+   23  clear
+   24  systemctl status nginx
+   25  clear
+   26  exit
+   27  ls
+   28  pwd
+   29  exit
+   30  clear
+   31  pwd
+   32  cd ..
+   33  pwd
+   34  ls
+   35  cd home
+   36  ls
+   37  cd ubuntu
+   38  pwd
+   39  cd ..
+   40  pwd
+   41  cd etc
+   42  ls
+   43  pwd
+   44  cd ~
+   45  clear
+   46  cd /etc
+   47  pwd
+   48  ls
+   49  ll
+   50  cd ~
+   51  history
+Next :::
+
+	- Continue with File Management
+	- User Management 
+	- Access Management 
+	- Remote Servers Management 
+	- Process Automation(Shell Scripting)
 			
 		
