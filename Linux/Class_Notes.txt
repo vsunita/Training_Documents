@@ -449,4 +449,445 @@ Next :::
 	- Remote Servers Management 
 	- Process Automation(Shell Scripting)
 			
+
+				
+#######################
+Day 5 : 15th July 2025
+#######################		
+				
+	- Continue with File Management :::
+
+		Create files/Directories :
 		
+		File Operations :
+		
+			- Open / Read / Delete / Update / Rename / Copy 
+			
+			
+		File Operations :
+		
+			- echo "Message" 				# output statement - To print msg to terminal 
+			
+			- echo "Record1" > file1.txt 	# Create/update a file with record
+		
+			- echo "Record1" >> file1.txt 	# Add New Record to a file	
+			
+			- touch <file_name>				# To Create Empty file
+			
+			- cat <file_name>				# To read the file contents 
+			
+			- File Editors :
+			
+				- vi editor					# To Create/Open a file in interactive mode
+				
+				
+				Eg.: 
+				
+					vi <file_name>			# To Create/Open a file in interactive mode
+					
+					
+					vi sample.txt
+					
+					press :
+					
+						i 					# go to insert mode 	
+
+						# Enter the file contents
+						# Enter the file contents
+						# Enter the file contents
+						# Enter the file contents
+					
+						esc :wq				# Save and exit from file 
+						
+						esc :q!				# exit from file without saving the changes 
+						
+						
+			- Rename a file/directory
+
+
+						mv <existing_file_name> <New_file_Name>
+						
+						Eg.: 
+						
+						mv sample1.txt dummyfile1.txt
+						
+			- Delete/Remove files :
+			
+						rm <file_name>
+						
+						rm <file1_name> <file2_name>
+						
+						rm *.txt 
+						
+		Create Directories :
+		
+			mkdir <New_Dir_Name> 				# Make Directory 
+			
+			
+		Copy files between the directories :
+		
+			cp <source_file> <Target_path>
+			Eg.: 
+			
+			cp s1.txt /home/ubuntu/dir2
+			cp /root/dir1/l1.txt /root/dir2
+					
+		Move files between the directories :
+		
+			mv <source_file> <Target_path>
+			Eg.: 
+			
+			mv s2.txt /home/ubuntu/dir2
+			mv /root/dir1/l1.txt /root/dir2
+
+
+		ls 				# Get the list of files & Dirs 
+		
+		ls - a			# Get the list of all files & dirs(including hidden files and dirs)
+
+		ll				# Long Listing 
+			
+			
+		
+	 File Access Management :::
+	
+		File Types :
+		
+			- Script 
+			- Program 
+			- Artifact 
+			
+			ll				# Long Listing 
+
+			root@ip-172-31-3-180:~/dir1# ll
+			total 16
+			drwxr-xr-x 3 root root 4096 Jul 15 15:13 ./
+			drwx------ 7 root root 4096 Jul 15 15:04 ../
+			-rw-r--r-- 1 root root    5 Jul 15 15:05 s1.txt
+			drwxr-xr-x 2 root root 4096 Jul 15 15:05 sdir1/
+
+		
+		Owner 
+		
+		Group Users 
+		
+		Public Users 
+		
+		----------
+		
+		-									# Denote dir or file (Possible value:  d or - )
+												'd'  Denotes Directory
+												'-'  Denotes File 
+												
+												
+		 ---								# Denote the Owner Level Access 
+												Possible Values: r / w /x 
+												r - Read only Access 
+												w - Write Access 
+												x - Execute Access 
+		
+			---								# Denote the Group Level Access
+												Possible Values: r / w /x 
+												r - Read only Access 
+												w - Write Access 
+												x - Execute Access
+
+			   ---							# Denote the Public User Level Access
+												Possible Values: r / w /x 
+												r - Read only Access 
+												w - Write Access 
+												x - Execute Access
+
+
+		https://chmod-calculator.com/
+	
+		chmod <Access_Level> <File/Directory_Name>
+		
+		chmod 600 s1.txt
+
+		chmod 600 dir1
+		
+		As a best practise chmod 777 should not be used at any cause!
+		
+		
+		
+	- User Management 	:::
+	
+	
+		Create Linux User :
+
+		SSH Connection :	Secure SHell Connection 
+		
+			-> Host Name 
+			-> User Name 
+			-> User Authentication 
+
+
+			-> Authentication Types :
+			
+				- Password Based Authentication
+				
+				- Key Based Authentication
+					- Public Key 
+					- Private Key 
+					- authorized keys
+
+
+
+
+		How to Create Linux User ?
+		
+			Username : devopsadmin 
+			
+			Bash Terminal Access :
+			
+			Home Dir :
+			
+			password :
+			
+			ssh-keys :
+
+
+
+		Create Linux User with SSH Keys :::
+		
+			sudo -i 
+			
+			useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+
+			su - devopsadmin
+
+			ssh-keygen -t ecdsa -b 521					#ubuntu 22.04 or higher version of ubuntu				
+
+			cd .ssh
+			
+			ls ~/.ssh 
+
+			#You should see following two files:
+
+			#id_ecdsa - private key
+			#id_ecdsa.pub - public
+			
+			
+			cat id_ecdsa.pub > authorized_keys			# authorized_keys this file name should be same.
+			
+			authorized_keys :::
+				It is the copy of Public Key.
+				
+				Always the private key will be compared with the authorized_keys
+				
+			chmod 600 /home/devopsadmin/.ssh/*					# Used to Change the Access Mode of Files or Directories
+			
+			chown -R devopsadmin:devopsadmin /opt/tomcat/		# Used to Change the Ownership of Files or Directories
+			
+			
+		Get the List of Linux Users ::::
+			cat /etc/passwd
+		
+		Get the list of Linux User Groups :::: 
+			cat /etc/group
+	
+		Create Password to any Linux User:
+		
+			As a root user ::
+			
+				passwd <user_name>
+				
+		root@ip-172-31-46-175:~# passwd devopsadmin
+		New password:
+		Retype new password:
+		passwd: password updated successfully
+		
+				passwd -d <user_name>		# Delete Linux User Password
+
+
+
+   53  ls
+   54  clear
+   55  echo "Hello Everyone!"
+   56  ls
+   57  pwd
+   58  touch file1.txt
+   59  ls
+   60  cat file1.txt
+   61  echo "Hello Everyone!"
+   62  ls
+   63  echo "Hello Everyone!" >> file2.txt
+   64  ls
+   65  cat file2.txt
+   66  echo "Hello !" >> file2.txt
+   67  cat file2.txt
+   68  echo "Hello !" >> file2.txt
+   69  echo "Record1!" > file2.txt
+   70  cat file2.txt
+   71  echo "Record!" > file2.txt
+   72  cat file2.txt
+   73  echo "Record1!" > file2.txt
+   74  cat file2.txt
+   75  echo "Record2!" >> file2.txt
+   76  cat file2.txt
+   77  echo "Record3!" >> file2.txt
+   78  cat file2.txt
+   79  echo "Record4!" >> file2.txt
+   80  cat file2.txt
+   81  echo "Record!" > file2.txt
+   82  cat file2.txt
+   83  echo "Record!" > file
+   84  cat file2.txt
+   85  cat file
+   86  echo "Record!" > directory
+   87  cat directory
+   88  echo "Record!" > s1.java
+   89  echo "Record!" > s2.c
+   90  ls
+   91  clear
+   92  vi a1.txt
+   93  ls
+   94  cat a1.txt
+   95  vi a1.txt
+   96  cat a1.txt
+   97  clear
+   98  ls
+   99  mv file file3.txt
+  100  ls
+  101  rm s2.c
+  102  ls
+  103  rm *.txt
+  104  ls
+  105  pwd
+  106  ls
+  107  mkdir dir1
+  108  ls
+  109  mkdir file
+  110  ls
+  111  mkdir dir2
+  112  ls
+  113  cd dir1/
+  114  pwd
+  115  ls
+  116  mkdir sdir1
+  117  ls
+  118  echo "rec1" >> s1.txt
+  119  ls
+  120  cd sdir1/
+  121  pwd
+  122  ls
+  123  cd ..
+  124  ls
+  125  cd ..
+  126  ls
+  127  cd dir2
+  128  pwd
+  129  ls
+  130  cd ..
+  131  cd dir1/
+  132  ls
+  133  cp s1.txt /root/dir2/
+  134  ls
+  135  cd ..
+  136  cd dir2/
+  137  ls
+  138  echo "rec1" >> l1.txt
+  139  ls
+  140  mv l1.txt /root/dir1/
+  141  ls
+  142  cd ..
+  143  cd dir1/
+  144  ls
+  145  clear
+  146  cd ..
+  147  ls
+  148  pwd
+  149  clear
+  150  ls
+  151  ll
+  152  ls
+  153  cd dir1/
+  154  ls
+  155  cd ..
+  156  cd dir2/
+  157  ls
+  158  mv l1.txt /root/dir2
+  159  mv /root/dir1/l1.txt /root/dir2
+  160  ls
+  161  cd ..
+  162  cd dir1/
+  163  clear
+  164  ll
+  165  clear
+  166  ls
+  167  ll
+  168  echo "rec1" >> s2.txt
+  169  ll
+  170  chmod 777 s2.txt
+  171  ll
+  172  chmod 600 s2.txt
+  173  ll
+  174  echo "adf" >> s1.sh
+  175  clear
+  176  ls
+  177  ll
+  178  chmod 755 s1.sh
+  179  ll
+  180  exit
+  181  clear
+  182  cd /home/
+  183  ls
+  184  cd ~
+  185  clear
+  186  useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+  187  su - devopsadmin
+  188  exit
+  189  clear
+  190  passwd devopsadmin
+  191  exit
+  192  su - devopsadmin
+  193  ll
+  194  exit
+  195  cd /
+  196  pwd
+  197  ls
+  198  cd etc/
+  199  pwd
+  200  clear
+  201  l
+  202  clear
+  203  cat /etc/passwd
+  204  cat /etc/group
+  205  cd ~
+  206  clear
+  207  ls
+  208  mkdir mywebapp
+  209  ls
+  210  ll
+  211  su - devopsadmin
+  212  ls
+  213  cd mywebapp/
+  214  clear
+  215  pwd
+  216  echo "ADFASDF" >> mywebapp.war
+  217  ls
+  218  pwd
+  219  ll
+  220  su - devopsadmin
+  221  chown -R devopsadmin:devopsadmin /root/mywebapp/
+  222  ll
+  223  cd ..
+  224  l
+  225  ll
+  226  su - devopsadmin
+  227  ls
+  228  cd mywebapp/
+  229  ls
+  230  ls -a
+  231  cd lear
+  232  clear
+  233  cd ~
+  234  clear
+  235  history
+
+Next :::
+
+	- Remote Servers Management :::	
+	
+	- Process Automation(Shell Scripting) :::
