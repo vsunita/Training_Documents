@@ -891,3 +891,191 @@ Next :::
 	- Remote Servers Management :::	
 	
 	- Process Automation(Shell Scripting) :::
+
+
+#######################
+Day 6 : 17th July 2025
+#######################	
+		
+	- Remote Servers Management :::		for Client/Server Architecture.
+	
+	
+	
+		VM1 
+		
+		VM2 
+		
+		Environments :
+		
+			Dev Environment (VM1)
+			
+			Build Environment --> Application Build ==> *.war 
+			 
+			QA (VM1) *.war 
+			
+			UAT (VM1) *.war 
+			
+			Prod (VM1) *.war 
+
+Use Case :
+
+		1. Establish Connection to Remote Server  
+		2. Login to the Remote Server 
+		3. Copy the Files from one server to another server
+			using SCP
+		4. Manage the Remote Server - Install any package/Uninstall/Upgrade 
+		
+		Pre-requisites for Remote Server :::
+		
+			- Launch 2 VMs (VM1-Source & VM2-Target)
+			
+			- Ensure that Port 22 is enabled 
+			
+			- Create User in both the VMs 
+			
+			- Create SSH-Key in one server(VM1)
+					ssh-keygen -t ecdsa -b 521
+					
+			- Use the public_Key as a authorized_keys in the target server(VM2)
+			
+			- Establish SSH Connection & Login to VM2(Target_Machine)
+			
+			- Copy Files from VM1 to VM2(Target_Machine)
+	
+		Server1 --> 
+		
+			-> Authentication : Tells who can access the Server 	
+			
+			-> Authorization : Tells what can be done on that Server
+			
+				Client_Machine ::::
+
+			- Create User in both the VMs ::::
+			
+				useradd adminuser1 -s /bin/bash -m -d /home/adminuser1
+
+				su - adminuser1					
+
+			- Use the public_Key as a authorized_keys in the target server(VM2) :::
+
+				mkdir .ssh 
+
+				cd .ssh 
+
+
+				vi authorized_keys
+
+				#paste the id_ecdsa.pub of devopsadmin user from Server machine to authorized_keys file in Client Machine 
+
+				chmod 600 /home/adminuser1/.ssh/*
+
+
+			- Establish SSH Connection & Login to VM2(Target_Machine)
+
+					ssh adminuser1@172.31.15.92				# Using Private IP Address
+					
+					ssh adminuser1@13.232.227.2				# Using Public IP Address
+
+email
+			
+			- Copy Files from VM1 to VM2(Target_Machine)
+			
+
+				#cp  /home/devopsadmin/sourcefile.txt home/devopsadmin/dir1/
+		
+				 scp /home/devopsadmin/sourcefile.txt adminuser1@172.31.15.92:/home/adminuser1
+
+		
+		
+	- Process Automation(Shell Scripting) :::	
+	
+	
+		Fundamentals of Shell Scripting :
+		
+			Scripting Languages ?
+				- Are used to perform some process automation/validations
+				- Light-weight 
+				- Eg.: java scripts / shell scripts / yaml script / groovy / python 
+					(vs)
+			Progamming Language ?
+				- Are used to create some business applications 
+				- Huge Collection of Programming components
+				- Eg.: Java/.Net Framework/Python/Ruby/Cobol/C
+				
+				
+	Shell Scripting Language :
+	
+		- Shell Scripting is a collection shell commands 
+		- Shell Script file should be saved as *.sh (Extention should be .sh)
+		
+	Install git ?
+	
+		Install all these packages in 200 VMs :::
+	
+		apt install openjdk11 -y
+		apt install git -y 
+		apt install maven -y 
+		apt install docker.io -y
+		apt install ansible -y 
+		
+		Shell Script :
+		
+vi installbuildtools.sh 
+
+	
+		
+				
+					
+					
+	Build Environment Server (VM):	To Perform Application Build - Identify the Source Code,Compile,Create Artifacts(Binaries)
+	
+		- Install all the required build tools : 1 Build Server ==> 50 Build Server!
+		
+				- apt install git -y  
+				- apt install jdk -y 
+				- apt install maven -y 			# Build Tool 
+				- apt install docker.io -y 		# To Containerize Application
+				
+				
+			vi javamaven-buildconfig.sh
+			
+				sudo apt install git -y  
+	            sudo apt install jdk -y 
+	            sudo apt install maven -y 		
+                sudo apt install docker.io -y 	
+				
+				
+			Test Servers :::
+			
+			
+				- testing tools - TestNG / Selenium / jdk / docker
+				
+				
+			Periodic Server Management :::
+			
+			
+				- Clean-up 
+				
+					rm dir!
+					
+			Periodic Backup of Files/Directories
+				
+
+				#!/bin/bash
+				sudo apt install git -y 
+				sudo apt install openjdk11 -y
+				sudo apt install maven -y 
+				sudo apt install docker.io -y
+				#sudo apt install ansible -y 
+
+				save the script as installbuildtools.sh 
+
+				/home/devopsadmin/scripts/$ ls 
+				installbuildtools.sh	
+
+				/home/devopsadmin/scripts/$ ./installbuildtools.sh		# Run the Shell Script!
+				
+				
+Next :::
+
+	Continue with Shell Scripting :
