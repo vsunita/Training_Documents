@@ -1,0 +1,242 @@
+#######################
+Day 8 : 21st July 2025
+#######################	
+
+
+	Version Control System using Git:
+	
+		- To Version Control the Source Changes!
+		- To Track the Source Changes.
+		
+			Using DevOps Approach :
+			
+			- Create Source Code 
+			- Save the Source Code in a Source Code Repository(Github)
+			
+			- Automate :
+				- Perform Application Build (Process of Compiling the Source Code & Create Artifacts(Binaries - *.war/*.jar/*.dll/*.exec)
+				- Unit Testing 
+				- Promote the Changes to Testing Environments
+				- Send Email Notifications to Concerned Team 		
+		
+		Java_Web_App_Project: 
+		
+		index.html 
+		
+		<html>
+		---
+		-
+		-
+		--
+		-
+		-
+		</html>
+		
+			Save index.html & Test
+		
+		Open index.html 
+		
+		<html>
+		---
+		-
+		-sdfgsdfg
+		--sdfgdf
+		-
+		-
+		sfgdfg
+		sdfgsdfg
+		sdfgsfgs
+		sdfgsdfgsdfgsdfg
+		</html>		
+		
+			Save index.html & Test		
+
+		Open index.html 
+		
+		<html>
+		---
+		-adfasd
+		-sdfgsdfg
+		--sdfgdf
+		-asdf
+		-asdfasdfasdfsdfsdf
+		sfgdfg
+		sdfgsdfg
+		sdfgsfgs
+		sdfgsdfgsdfgsdfg
+		</html>		
+		
+			Save index.html & Test	
+		
+
+		
+	Using Version Control System :
+
+		index.html 
+		
+		<html>
+		---
+		-
+		-
+		--
+		-
+		-
+		</html>
+		
+			Save index.html using Version Control System 	: index.html_V1.0			# V1.0 - Tag/Version_Number/Commit_ID
+
+		Open index.html 
+		
+		<html>
+		---
+		-
+		-sdfgsdfg
+		--sdfgdf
+		-
+		-
+		sfgdfg
+		sdfgsdfg
+		sdfgsfgs
+		sdfgsdfgsdfgsdfg
+		</html>		
+		
+			Save index.html using Version Control System 	: index.html_V1.1			# V1.1 - Tag/Version_Number/Commit_ID
+			Save index.html using Version Control System 	: index.html_V1.2
+			Save index.html using Version Control System 	: index.html_V1.3
+			Save index.html using Version Control System 	: index.html_V1.4
+			Save index.html using Version Control System 	: index.html_V1.5
+			Save index.html using Version Control System 	: index.html_V1.6
+			Save index.html using Version Control System 	: index.html_V1.7
+
+	Version Control System using Git:
+	
+		- To Version Control the Source Changes!
+		- To Track the Source Changes.
+		
+		
+	Types of VCS :
+	
+	
+	- Local VCS 
+	
+	- Centralized VCS 
+	
+	- Distributed VCS 
+
+
+
+	- GIT :::
+	
+		- Git is an Open-Source Distributed VCS 
+		- It is used to Version Control the Source Changes!
+		- Used to Track the Source Changes.
+		- Git is used to perform parallel development using Branching Technique
+		
+		
+	Working with GIT :::
+	
+		- GitHub Server  
+			GitHub Repositories
+			
+			
+	In Local Machine :
+	
+		- Install git client 
+		
+	Developers' Workload :
+	
+		- Enhancement Project / Bug fixing 
+		
+			==> Developers are going to work with existing Project 
+		
+		- Create New Product 
+		
+			==> Developers create the Repository from the scratch in Local Machine & Save it to Remote Repository
+			
+			
+			
+	Working with GIT :::
+
+		- Git File Workflow :
+		- Misc. Git Cli Commands :		
+		
+	
+	Local Machine 																							Remote Server 
+	
+	
+		Working Directory 				Staging Area					Local Repository						Remote Repository
+			
+			index.html 	 --------------->	index.html ----------------->	index.html_v1.1	-------------------->	index.html_v1.1	
+							git add 					  git commit 						      git push
+			index.html 	 --------------->	index.html ----------------->	index.html_v1.2	-------------------->	index.html_v1.2	
+							git add 					  git commit 						      git push
+			index.html 	 --------------->	index.html ----------------->	index.html_v1.3	-------------------->	index.html_v1.3	
+							git add 					  git commit 						      git push
+			index.html 	 --------------->	index.html ----------------->	index.html_v1.4	-------------------->	index.html_v1.4	
+							git add 					  git commit 						      git push
+			index.html 	 --------------->	index.html ----------------->	index.html_v1.5	-------------------->	index.html_v1.5	
+							git add 					  git commit 						      git push
+			index.html 	 --------------->	index.html ----------------->	index.html_v1.6	-------------------->	index.html_v1.6	
+							git add 					  git commit 						      git push							
+	
+		
+	
+	GIT Cli Commands :::
+		
+		- git clone 			# To Copy/Clone the remote repository to local machine 
+		
+		- git add 				# To add the changes from Working Directory to Staging Area 
+		
+		- git commit 			# To Commit the changes from Staging to Local Repository 
+		
+		- git push 				# To Push the Changes from Local Repository to Remote Repository
+		
+		- git fetch/git pull ::
+		
+			--> Both Git Fetch and Git Pull Commands are used to handle the incremental changes from Remote Repository 
+			
+			Git Fetch ::
+				git fetch is used to just check for the incremental changes. If there is any incremental changes present in the remote repository, the information about the incremental changes will be updated only in the Local Repository. The Actual File Changes will NOT be updated in the Working Directory. 
+			
+			Git Pull ::
+				git pull is used to check for the incremental changes. If there is any incremental changes present in the remote repository, the information about the incremental changes will be updated only in the Local Repository and the Actual File Changes will be updated in the Working Directory. 
+
+				git pull = git fetch + git merge 
+
+		
+		- Fork 					# Copy one Remote Repository to another Remote Repository 
+		
+		
+		- git init				# 	To initialize the git repository 
+									Create .GIT Directory 
+									Create Default Branch - master branch.
+								
+	Install GIT :::
+	
+		https://git-scm.com/downloads
+		
+		git --version 
+		
+		
+		Windows Machine :
+		
+			- GIT BASH  --> Based on Linux Bash Shell   ********
+			
+			- GIT CMD 	--> Based on Windows PowerShell 
+			- GIT GUI 	--> GUI Tool 			
+
+
+
+	Open GitBash :
+	
+		cd d:
+		mkdir PL-DevOps 
+		cd PL-DevOps
+			mkdir projrepo1
+				cd projrepo1
+			mkdir projrepo2
+		
+		d: 
+			PL-DevOps
+				projrepo1
+				projrepo2
