@@ -240,3 +240,360 @@ Day 8 : 21st July 2025
 			PL-DevOps
 				projrepo1
 				projrepo2
+
+
+
+#######################
+Day 9 : 22nd July 2025
+#######################	
+
+	
+		cd d:
+		mkdir PL-DevOps 
+		cd PL-DevOps
+			mkdir projrepo1
+				cd projrepo1
+			mkdir projrepo2
+
+
+
+		- git init				# 	To initialize the git repository 
+									Create .GIT Directory 
+									Create Default Branch - master/main branch.									
+									
+		- Misc. git cli commands ::::
+		
+			- git status :	Current branch status of the repository
+		
+	Local Machine 																							
+	
+	
+		Working Directory 				Staging Area					Local Repository						
+			
+			file1.txt 	 --------------->	file1.txt ----------------->	file1.txt	
+							git add 					  git commit 						      
+
+		
+			- git log 
+
+			
+			- git config :::		
+			
+				Git Global Configuration is applicable to all the repositories  		# Before the very first Commit.
+			
+					- git config --global user.name "LoksaiETA"
+					
+					- git config --global user.email "Loksai@ETA.com"
+
+				Git Local Configuration is applicable to a specific repository 			# Not Recommended.
+			
+					- git config user.name "LoksaiETA"
+					
+					- git config user.email "Loksai@ETA.com"
+
+
+			cd d:
+			mkdir PL-DevOps 
+			cd PL-DevOps
+				mkdir projrepo1
+					cd projrepo1
+					
+						- git init 
+						
+						- git config --global user.name "LoksaiETA"				# One time activity
+						
+						- git config --global user.email "Loksai@ETA.com"		# One time activity					
+						
+						echo "rec1" >> f1.txt 
+						
+						git add f1.txt 
+						
+						git commit -m "Commit_Msg"
+						
+						
+			Git Add :::
+			
+				git add <file_name>
+				
+				git add <file1_name> <file2_name>
+				
+				git add *.md *.java 
+				
+				git add .
+				
+				
+			Undo the Changes from Staging Area :
+			
+				Unstage :
+				
+					git rm --cached <a1.txt> 			# This is just to unstage
+														# The changes will back to working directory
+				
+					git rm -f <a2.txt>					# This is permanent deletion of that file
+														# Remove the file from staging as well as from the working directory
+													
+			
+			git log :::	
+			
+				- Used to get the commit history 
+			
+				git log
+				
+				git log --oneline
+				
+				git log -1
+				
+				git log --oneline -3
+				
+				git log --stat
+				
+				
+			git show <commit_id>
+			
+			
+			GitIgnore!
+
+				- Used to Ignore the files from tracking!
+				- Create .gitignore file and update the files with all the file names/folder names to be ignored 
+				- As a best practise, .gitignore should be the very first commit 
+			
+				working Directory							staging area			local repo 		--> git push   		remote repo 
+				
+				
+				Java_Web_App_Project :::																				Java_Web_App_Project :::
+					
+					- src 
+						main
+							*.java 
+						test 
+							*.java 
+					- resources
+						*.html 
+						*.js 
+						*.css 
+					- application.properties 
+					- pom.xml 
+					- target	
+						*.war 
+					- dbsecrets.json
+					_ user_cred.json
+					
+					
+			- ls 					# Linux Command to list the dir. i.e,., Working Directory
+			
+			
+			- git ls-files			# Git Cli Command used to get the list of files/dir. that are being tracked by git.
+			
+			
+			- git commit :::
+			
+				--> git commit -m <Commit_Message>
+				
+							# Commit Message should be relevant to the Changes.
+							
+							# Commit Message  - Rel_# / CR# 
+							
+							# Eg.: 
+							
+								Rel0825-Updated Payment Module
+							
+							
+  501  cd d:
+  502  cd PL-DevOps
+  503  mkdir PL-DevOps
+  504  cd PL-DevOps/
+  505  clear
+  506  ls
+  507  pwd
+  508  clear
+  509  mkdir projrepo1
+  510  ls
+  511  cd projrepo1/
+  512  git init
+  513  ls
+  514  ls -a
+  515  cd .git/
+  516  ls
+  517  cd ..
+  518  clear
+  519  cd ..
+  520  pwd
+  521  ls
+  522  mkdir projrepo2
+  523  ls
+  524  cd projrepo2/
+  525  clear
+  526  ls
+  527  git init
+  528  git status
+  529  ls
+  530  echo "rec1" >> file1.txt
+  531  ls
+  532  git status
+  533  pwd
+  534  ls
+  535  git add file1.txt
+  536  git status
+  537  git commit -m "Created file1.txt"
+  538  git status
+  539  git status
+  540  git log
+  541  ls
+  542  git status
+  543  echo "file2.txt" >> file2.txt
+  544  ls
+  545  git status
+  546  ls
+  547  git add file2.txt
+  548  git status
+  549  git commit -m "Created file2.txt
+"
+  550  git status
+  551  git log
+  552  ls
+  553  cat file1.txt
+  554  cat file2.txt
+  555  echo "Record1" > file2.txt
+  556  cat file2.txt
+  557  git status
+  558  git add file2.txt
+  559  git status
+  560  git commit -m "Updated file2.txt"
+  561  git log
+  562  clear
+  563  cat file2.txt
+  564  echo "Record2" >> file2.txt
+  565  git status
+  566  git add file2.txt
+  567  git status
+  568  echo "Record3" >> file2.txt
+  569  cat file2.txt
+  570  git status
+  571  git add file2.txt
+  572  git status
+  573  git commit -m "Updated file2.txt"
+  574  git status
+  575  git log
+  576  git config --global user.name "LoksaiETA"
+  577  echo "Rec1" >> f3.txt
+  578  git add f3.txt
+  579  git commit -m "Created f3.txt"
+  580  git status
+  581  git log
+  582  clear
+  583  cd ..
+  584  cd projrepo1/
+  585  ls
+  586  git status
+  587  echo "rec1" >> a1.txt
+  588  git status
+  589  echo "rec1" >> a2.txt
+  590  git status
+  591  echo "rec1" >> q1.java
+  592  echo "rec1" >> q2.java
+  593  echo "rec1" >> q3.java
+  594  echo "rec1" >> l1.html
+  595  echo "rec1" >> l2.html
+  596  echo "rec1" >> l3.html
+  597  echo "rec1" >> m1.md
+  598  echo "rec1" >> m2.md
+  599  echo "rec1" >> m3.md
+  600  ls
+  601  echo "rec1" >> t1.doc
+  602  echo "rec1" >> t2.doc
+  603  echo "rec1" >> t3.doc
+  604  ls
+  605  git status
+  606  git add a1.txt
+  607  git status
+  608  git add a2.txt l1.html m1.md
+  609  git status
+  610  git add *.html *.md
+  611  git status
+  612  git add .
+  613  git status
+  614  git rm --cached a1.txt
+  615  git status
+  616  git add .
+  617  git status
+  618  git rm -f a1.txt
+  619  ls
+  620  clear
+  621  git commit -m "adsf"
+  622  clear
+  623  cd ..
+  624  cd projrepo2/
+  625  clear
+  626  git log
+  627  echo "Rec1" >> k1.txt
+  628  git add .
+  629  git commit -m "asdf"
+  630  clear
+  631  git log
+  632  git log
+  633  git log --oneline
+  634  git log -3
+  635  git log -2
+  636  git log -1
+  637  git log --oneline -3
+  638  git log stat
+  639  git log --stat
+  640  git log --oneline
+  641  clear
+  642  git log --oneline
+  643  git show d3299f8
+  644  git show 80b612f
+  645  git status
+  646  git commit -m "adfasd"
+  647  git log --oneline
+  648  git log --oneline 3
+  649  clear
+  650  cd ..
+  651  ls
+  652  mkdir projrepo3
+  653  cd projrepo3/
+  654  clear
+  655  ls
+  656  git init
+  657  ls
+  658  vi .gitignore
+  659  cat .gitignore
+  660  git status
+  661  git add .
+  662  git commit -m "Initial Commit for .gitignore"
+  663  clear
+  664  ls
+  665  ls -a
+  666  ls
+  667  echo "rec1" >> f1.txt
+  668  git status
+  669  echo "rec1" samples.txt
+  670  echo "rec1" >> samples.txt
+  671  ls
+  672  git status
+  673  echo "rec1" >> sample1.txt
+  674  ls
+  675  git status
+  676  cat .gitignore
+  677  clear
+  678  git status
+  679  la
+  680  ls
+  681  git ls-files
+  682  git add .
+  683  git ls-files
+  684  git status
+  685  git commit -m "Created some files"
+  686  clear
+  687  ls
+  688  git ls-files
+  689  ls -a
+  690  vi .gitignore
+  691  git log
+  692  ls
+  693  mkdir sdir1
+  694  ls
+  695  cd sdir1/
+  696  ls
+  697  history
+							
