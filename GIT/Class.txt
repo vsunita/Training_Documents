@@ -597,3 +597,421 @@ Day 9 : 22nd July 2025
   696  ls
   697  history
 							
+
+
+#######################
+Day 10 : 24th July 2025
+#######################	
+				
+		- git Revert/Reset ::::
+		
+		
+	HEAD Pointer ::
+	
+	
+	git reset :::
+	
+		git reset is used to undo the changes from the repository
+		git reset will reset the commit point to the previous commit point 
+		git reset will not create any new commit point for track purpose 
+		As a best practise, git reset is not recommended in the shared repository 
+	
+		Syntax :		
+			- git reset <reset_option> <previous_Commit_ID>
+			
+		Reset Options ::
+		
+			git reset --soft <previous_Commit_ID> :::
+				- git reset will reset the HEAD pointer to the previous commit point.
+				- It will take the changes back to staging area 
+				- The Changes will be available in staging area and working directory					
+		
+			git reset --mixed <previous_Commit_ID> :::									# Default
+				- git reset will reset the HEAD pointer to the previous commit point.
+				- It will take the changes back to working directory 
+				- The Changes will be available only in working directory			
+			
+			git reset --hard  <previous_Commit_ID> :::
+				- git reset will reset the HEAD pointer to the previous commit point.
+				- It will permanently delete the files from the system 
+		
+		Repo1:
+		
+			master :
+			
+					c5	(HEAD)
+					c4
+					c3
+					c2
+					c1
+
+		ETL Process ::::	
+
+	git revert :::
+	
+		- Git Revert is same as git reset --hard option 		
+		- git revert is used to undo a specific commit 		
+		- git revert will create a new commit point for tracking purpose.		
+		- git revert will maintain the commit history		
+		- git revert is recommended in shared repositories
+		
+		Syntax ::
+			git revert <specific_Commit_ID>
+				
+				
+	- git Branches ::::
+	
+		- Git Branch is a logical copy of a Repository/Specific Branch.
+		- It help perform parallel development
+		- It help the developers to independently work on their changes without impacting others
+		- Git Branching Strategy is used to maintain the integrity of default: master/main branch
+			
+
+	Scenario1 :
+	
+		Repo:
+		
+			master : cm1,cm2,cm3
+						cm1,cm2,cm3,f1cm1,f1cm2,f1cm3				# Upon merging feature1 branch.				
+			
+				feature1 : cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+	
+
+	Scenario2 :
+	
+		Repo:
+		
+			master : cm1,cm2,cm3	
+						cm1,cm2,cm3,cm4							# cm4 is the commit point merged from Developer_Branch
+			
+				Developer_Branch : cm1,cm2,cm3
+									cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3
+			
+					feature1 : cm1,cm2,cm3
+								cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+					
+					feature2 : cm1,cm2,cm3
+								cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+
+	Scenario3 :
+	
+		Repo:
+		
+			master : cm1,cm2,cm3	
+						cm1,cm2,cm3,cm4					# cm4 is the changes from Integration Branch - Developer1 & Developer2
+			
+				Integration_Branch : cm1,cm2,cm3
+										cm1,cm2,cm3,Developer1_Changes,Developer2_Changes
+			
+					Developer_Branch1 : cm1,cm2,cm3
+										cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3
+				
+						feature1 : cm1,cm2,cm3
+									cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+						
+						feature2 : cm1,cm2,cm3
+									cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+
+					Developer_Branch2 : cm1,cm2,cm3
+										cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3
+				
+						feature1 : cm1,cm2,cm3
+									cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+						
+						feature2 : cm1,cm2,cm3
+									cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+
+
+
+	Scenario4 :
+	
+		Repo:
+		
+			master : cm1,cm2,cm3	
+						cm1,cm2,cm3,cm4					# cm4 is the changes from Release_Branch - Team1 & Team2
+			
+				Release_Branch : cm1,cm2,cm3,Team1_Changes,Team2_Changes
+			
+					Integration_Branch1 : cm1,cm2,cm3													# AD_Team1
+											cm1,cm2,cm3,Developer1_Changes,Developer2_Changes
+				
+						Developer_Branch1 : cm1,cm2,cm3
+											cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3
+					
+							feature1 : cm1,cm2,cm3
+										cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+							
+							feature2 : cm1,cm2,cm3
+										cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+
+						Developer_Branch2 : cm1,cm2,cm3
+											cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3
+					
+							feature1 : cm1,cm2,cm3
+										cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+							
+							feature2 : cm1,cm2,cm3
+										cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+
+
+					Integration_Branch2 : cm1,cm2,cm3													# AD_Team2
+											cm1,cm2,cm3,Developer1_Changes,Developer2_Changes
+				
+						Developer_Branch1 : cm1,cm2,cm3
+											cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3
+					
+							feature1 : cm1,cm2,cm3
+										cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+							
+							feature2 : cm1,cm2,cm3
+										cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+
+						Developer_Branch2 : cm1,cm2,cm3
+											cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3
+					
+							feature1 : cm1,cm2,cm3
+										cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+							
+							feature2 : cm1,cm2,cm3
+										cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+										
+
+
+	Scenario2 :
+	
+		Repo:
+		
+			master : cm1,cm2,cm3	
+			
+							cm1,cm2,cm3,cm3.1						# cm3.1   Merge from hot-fix changes
+						
+				hot-fix : cm1,cm2,cm3	
+							cm1,cm2,cm3,hfcm1,hfcm2,hfcm3
+			
+				Developer_Branch : cm1,cm2,cm3
+									cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3
+			
+					feature1 : cm1,cm2,cm3
+								cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+					
+					feature2 : cm1,cm2,cm3
+								cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+
+
+
+										
+	Git Branching :
+	
+		- Create branch !
+		
+		- git branch 					- To list the branches 
+		
+		- git branch feature1 			- To Create a new Branch - feature1 
+		
+		- git switch -c feature2		- To create a new branch and switch to that branch 	
+		
+		- git switch feature2			- To switch to feature2 branch 	
+
+
+	Merge the Changes from feature branch to master!
+	
+		- Repo :
+		
+			master : cm1 
+			
+				feature1	: cm1 
+				
+								cm1,f1cm1
+								
+							git switch master 				# Switch to master branch
+							
+							git merge feature1				# Perform Merge from feature1 to master 
+															# git merge command should be executed from target branch(master)
+				feature2	: cm1 
+
+  998  cd PL-DevOps/
+  999  clear
+ 1000  ls
+ 1001  clear
+ 1002  ls
+ 1003  mkdir testrepo1
+ 1004  cd testrepo1/
+ 1005  clear
+ 1006  git init
+ 1007  ls
+ 1008  vi .gitignore
+ 1009  git add .
+ 1010  git commit -m "Initial Commit - .gitignore"
+ 1011  clear
+ 1012  ls
+ 1013  git log --oneline
+ 1014  ls
+ 1015  clear
+ 1016  ls
+ 1017  echo "rec1" >> s1.txt
+ 1018  git add .
+ 1019  git commit -m "cm1"
+ 1020  clear
+ 1021  git log --oneline
+ 1022  ls
+ 1023  git ls-files
+ 1024  ls -a
+ 1025  clear
+ 1026  echo "rec1" >> s2.txt
+ 1027  git add .
+ 1028  git commit -m "cm2"
+ 1029  echo "rec1" >> s3.txt
+ 1030  git add .
+ 1031  git commit -m "cm3"
+ 1032  echo "rec1" >> s4.txt
+ 1033  git add .
+ 1034  git commit -m "cm4"
+ 1035  echo "rec1" >> s5.txt
+ 1036  git add .
+ 1037  git commit -m "cm5"
+ 1038  clear
+ 1039  ls
+ 1040  git ls-files
+ 1041  git status
+ 1042  git log --oneline
+ 1043  git reset --soft a361734
+ 1044  git status
+ 1045  ls
+ 1046  git ls-files
+ 1047  git log --oneline
+ 1048  git commit -m "cm5.1"
+ 1049  clear
+ 1050  git status
+ 1051  ls
+ 1052  git ls-files
+ 1053  git log --oneline
+ 1054  git reset --mixed a361734
+ 1055  git status
+ 1056  ls
+ 1057  git ls-files
+ 1058  git log --oneline
+ 1059  git add .
+ 1060  git commit -m "cm5.2"
+ 1061  clear
+ 1062  git status
+ 1063  ls
+ 1064  git ls-files
+ 1065  git log --oneline
+ 1066  git reset --hard a361734
+ 1067  git status
+ 1068  git ls-files
+ 1069  ls
+ 1070  git log --oneline
+ 1071  git reset --hard d4bd6b7
+ 1072  git log --oneline
+ 1073  ls
+ 1074  git ls-files
+ 1075  clear
+ 1076  git log --oneline
+ 1077  git reset --hard 34af6f3
+ 1078  ls
+ 1079  git ls-files
+ 1080  git status
+ 1081  git log --oneline
+ 1082  clear
+ 1083  git log --oneline
+ 1084  ls
+ 1085  ls -a
+ 1086  ls
+ 1087  clear
+ 1088  echo "rec1" >> f1.txt
+ 1089  git add .
+ 1090  git commit -m "cm1"
+ 1091  echo "rec1" >> f2.txt
+ 1092  git add .
+ 1093  git commit -m "cm2"
+ 1094  echo "rec1" >> f3.txt
+ 1095  git add .
+ 1096  git commit -m "cm3"
+ 1097  echo "rec1" >> f4.txt
+ 1098  git add .
+ 1099  git commit -m "cm4"
+ 1100  echo "rec1" >> f5.txt
+ 1101  git add .
+ 1102  git commit -m "cm5"
+ 1103  clear
+ 1104  git log --oneline
+ 1105  git status
+ 1106  ls
+ 1107  git ls-files
+ 1108  git log -oneline
+ 1109  git log --oneline
+ 1110  clear
+ 1111  git log --oneline
+ 1112  ls
+ 1113  git revert 69e1cb6
+ 1114  ls
+ 1115  git log --oneline
+ 1116  git revert fb0ab42
+ 1117  git log --oneline
+ 1118  ls
+ 1119  clear
+ 1120  ls
+ 1121  cd ..
+ 1122  mkdir testrepo2
+ 1123  clear
+ 1124  ls
+ 1125  cd testrepo2/
+ 1126  git init
+ 1127  git branch
+ 1128  echo "rec1" >> f1.txt
+ 1129  git add .
+ 1130  git commit -m "cm1"
+ 1131  clear
+ 1132  git branch
+ 1133  git branch feature1
+ 1134  git branch
+ 1135  ls
+ 1136  git log --oneline
+ 1137  git branch feature2
+ 1138  git branch
+ 1139  git switch -c feature3
+ 1140  git branch
+ 1141  git switch master
+ 1142  clear
+ 1143  git branch
+ 1144  git switch feature1
+ 1145  git log --oneline
+ 1146  ls
+ 1147  clear
+ 1148  ls
+ 1149  git log --oneline
+ 1150  ls
+ 1151  cat f1.txt
+ 1152  echo "rec1" >> s1.txt
+ 1153  git add .
+ 1154  git commit -m "f1cm1"
+ 1155  git log --oneline
+ 1156  ls
+ 1157  git switch master
+ 1158  git log --oneline
+ 1159  ls
+ 1160  git merge feature1
+ 1161  ls
+ 1162  git log --oneline
+ 1163  ls
+ 1164  clear
+ 1165  history
+
+Next :
+
+	- Handle Merge Conflicts
+
+	- Best Practise 
+	
+	- Rebase,
+	
+	- Squash,
+	
+	- Stash 
+	
+	- git stash
+	
+	- Handling Merge Conflicts 
+	
+	- Handling Repositories (Github)
