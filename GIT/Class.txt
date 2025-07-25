@@ -1015,3 +1015,253 @@ Next :
 	- Handling Merge Conflicts 
 	
 	- Handling Repositories (Github)
+
+
+
+#######################
+Day 11 : 25th July 2025
+#######################
+
+	Git Merge Actions!
+	
+
+	Merge the Changes from feature branch to master!
+	
+		- Repo :
+		
+			master : cm1 
+			
+				feature1	: cm1 
+				
+								cm1,f1cm1
+								
+							git switch master 				# Switch to master branch
+							
+							git merge feature1				# Perform Merge from feature1 to master 
+															# git merge command should be executed from target branch(master)
+				feature2	: cm1 
+
+
+	- Handle Merge Conflicts :::
+	
+		- Reason for Merge Conflicts :
+		
+			- When more than one user/feature try to update a same line in the same file on the same target branch, merge Conflict Occurs.
+	
+		- Fix the Merge Conflicts :		
+		
+			- Identify the file(s) causing the conflicts 
+			- Open and review the content, & decide which feature change to be maintained/removed from that target branch
+			- Edit that file(s), remove the additional header and footer lines and update the file with actual content.
+			- Perform git add 
+			- Perform git commit to the target branch.
+		
+		
+	- On DevOps perspective ::
+	
+		- Prevent the Merge Conflicts!
+		
+		
+	Git Rebase ::::	
+	
+		- Rebase is used to maintain linear commit history 
+		- Rebase is used to keep the current branch in-sync with target branch 
+		- Rebase can prevent merge-conflicts in the target branch 
+		- As a best practise, it is always recommended to use rebase before merge
+		
+		
+		Repo :
+		
+			master : cm1,cm2,cm3 
+			
+						cm1,cm2,cm3,f1cm1,f1cm2,f1cm3							# Upon merging feature1 branch
+						
+						#cm1,cm2,cm3,f2cm1,f2cm2,f2cm3,f1cm1,f1cm2,f1cm3		# Upon merging feature2 without proper rebase
+			
+						cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3			# Expected Linear Commit history
+																				# Upon merging feature2 with proper rebase			
+			
+				feature1 : cm1,cm2,cm3 
+							
+							cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+							
+							git switch master 
+							
+							git merge feature1	
+							
+		
+				feature2 : cm1,cm2,cm3	
+	
+							cm1,cm2,cm3,f2cm1,f2cm2,f2cm3							
+							
+							git rebase master 
+							
+							cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3							
+		
+							git switch master 
+							
+							git merge feature2			
+		
+		
+	- Git Squash ::::
+	
+	- git merge --squash <branch_name>
+	
+		- Is used to Combine more than one commits into one commit point.
+		
+		Repo :
+		
+			master : cm1,cm2,cm3
+			
+				feature1: cm1,cm2,cm3
+							cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,..........................................................,f1cm200
+							
+					git switch master
+					
+					git merge --squash feature1				# in the target branch
+					
+					git commit -m "cm4"						# in the target branch
+			
+			
+			
+	Scenario4 :
+	
+		Repo:
+		
+			master : cm1,cm2,cm3	
+						cm1,cm2,cm3,cm4					# cm4 is the changes from Release_Branch - Team1 & Team2
+			
+				Release_Branch : cm1,cm2,cm3,Team1_Changes,Team2_Changes
+			
+					Integration_Branch1 : cm1,cm2,cm3													# AD_Team1
+											cm1,cm2,cm3,Developer1_Changes,Developer2_Changes
+				
+						Developer_Branch1 : cm1,cm2,cm3
+											cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3
+					
+							feature1 : cm1,cm2,cm3
+										cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+							
+							feature2 : cm1,cm2,cm3
+										cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+
+						Developer_Branch2 : cm1,cm2,cm3
+											cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3
+					
+							feature1 : cm1,cm2,cm3
+										cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+							
+							feature2 : cm1,cm2,cm3
+										cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+
+
+					Integration_Branch2 : cm1,cm2,cm3													# AD_Team2
+											cm1,cm2,cm3,Developer1_Changes,Developer2_Changes
+				
+						Developer_Branch1 : cm1,cm2,cm3
+											cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3
+					
+							feature1 : cm1,cm2,cm3
+										cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+							
+							feature2 : cm1,cm2,cm3
+										cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+
+						Developer_Branch2 : cm1,cm2,cm3
+											cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3
+					
+							feature1 : cm1,cm2,cm3
+										cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+							
+							feature2 : cm1,cm2,cm3
+										cm1,cm2,cm3,f2cm1,f2cm2,f2cm3			
+			
+			
+			
+	git cherry-pick ::	****
+
+		- It is used to merge the specific commit to the target branch!
+		
+		git cherry-pick <commit_id> <commit_id> <commit_id>
+		
+	
+	
+	
+	
+	- Handling Repositories (Github)
+
+		
+	GIT Cli Commands :::
+		
+		- git clone 			# To Copy/Clone the remote repository to local machine 
+		
+		- git add 				# To add the changes from Working Directory to Staging Area 
+		
+		- git commit 			# To Commit the changes from Staging to Local Repository 
+		
+		- git push 				# To Push the Changes from Local Repository to Remote Repository
+		
+		- git fetch/git pull ::
+		
+			--> Both Git Fetch and Git Pull Commands are used to handle the incremental changes from Remote Repository 
+			
+			Git Fetch ::
+				git fetch is used to just check for the incremental changes. If there is any incremental changes present in the remote repository, the information about the incremental changes will be updated only in the Local Repository. The Actual File Changes will NOT be updated in the Working Directory. 
+			
+			Git Pull ::
+				git pull is used to check for the incremental changes. If there is any incremental changes present in the remote repository, the information about the incremental changes will be updated only in the Local Repository and the Actual File Changes will be updated in the Working Directory. 
+
+				git pull = git fetch + git merge 
+
+		
+		- Fork 					# Copy one Remote Repository to another Remote Repository 
+		
+		
+		- git init				# 	To initialize the git repository 
+									Create .GIT Directory 
+									Create Default Branch - master/main branch.
+								
+		
+
+	- Devlopers' Workload :
+	
+		- Enhancement Project / Bugfix Project :::
+		
+		rebase / pull 
+		
+		- New Project 
+		
+		
+		
+		Pull Request! 
+		
+			- Developers create the pull request to merge thier changes to master branch!
+			
+		
+		git clone <repo_url>
+		
+		
+		git clone https://github.com/PL-DevOps-GenAI-0625/testrepo1.git
+		
+		git remote -v 		# Get the list of remote repositories linked to the local repository
+		
+		
+		git push -u origin local-feature1
+		
+		
+		
+		github credentials used to push the changes!
+		
+			- github account personal access token!
+		
+		
+				gdLJS
+				
+				brower login option!
+	
+	
+		git remote -v 		# Get the list of remote repositories linked to the local repository
+		
+		git remote add origin https://github.com/PL-DevOps-GenAI-0625/testrepo1.git
+
+		git remote remove origin
