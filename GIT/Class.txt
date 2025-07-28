@@ -1265,3 +1265,148 @@ Day 11 : 25th July 2025
 		git remote add origin https://github.com/PL-DevOps-GenAI-0625/testrepo1.git
 
 		git remote remove origin
+
+
+
+#######################
+Day 12 : 28th July 2025
+#######################
+
+	git Stash :::
+	
+		- Is used to save the uncommited changes to a temporary area!
+		
+		stash is List DS :
+		
+	Repo :
+	
+		master : cm1,cm2,cm3 
+		
+			feature1 : cm1,cm2,cm3 
+			
+						cm1,cm2,cm3,f1cm1,2,3,4,5,.......
+	
+	
+	git stash list							# Get the List of Stashed entires!  FILO
+	
+	git stash save "for l1.txt"				# Create stash entry in the stash list 
+	
+	
+	git stash apply 						# To Apply the latest entry from the stash list back the staging area	
+	
+	git stash apply stash@{3}				# To Apply a specific entry from the stash list back the staging area	
+	
+	git stash drop							# To delete/drop the latest entry from the stash list. 
+	
+	git stash drop stash@{3}				#  delete/drop a specific entry from the stash list. 	
+	
+	git stash pop							
+					# To Apply the latest entry from the stash list back the staging area as well as delete/drop that latest entry
+					
+	git stash pop stash@{3}
+					# To Apply a specific from the stash list back the staging area as well as delete/drop that entry
+					
+	git stash clear 						# Clean-up the Stash list!
+	
+	
+  508  mkdir temprepo1
+  509  cd temprepo1/
+  510  clear
+  511  git init
+  512  echo "rec1" >> f1.txt
+  513  git add .
+  514  git commit -m "created f1.txt"
+  515  clear
+  516  git branch feature1
+  517  git branch feature2
+  518  clear
+  519  git switch feature1
+  520  ls
+  521  git log --oneline
+  522  git status
+  523  ls
+  524  echo "rec1" >> l1.txt
+  525  echo "rec2" >> l1.txt
+  526  git add .
+  527  git status
+  528  ls
+  529  git switch feature2
+  530  git status
+  532  clear
+  533  git status
+  534  git switch feature1
+  535  clear
+  536  git status
+  537  git stash list
+  538  git stash save "for l1.txt"
+  539  git stash list
+  540  git status
+  541  ls
+  542  git ls-files
+  543  echo "rec1" >> l2.txt
+  544  git add .
+  545  git stash save "for l2.txt"
+  546  echo "rec1" >> l3.txt
+  547  git add .
+  548  git stash save "for l3.txt"
+  549  echo "rec1" >> l4.txt
+  550  git add .
+  551  git stash save "for l4.txt"
+  552  echo "rec1" >> l5.txt
+  553  git add .
+  554  git stash save "for l5.txt"
+  555  echo "rec1" >> l6.txt
+  556  git add .
+  557  git stash save "for l6.txt"
+  558  ls
+  559  git status
+  560  git stash list
+  561  echo "rec1" >> l7.txt
+  562  git add .
+  563  git stash save "for l7.txt"
+  564  git stash list
+  565  git status
+  566  ls
+  567  git status
+  568  git stash list
+  569  git stash apply
+  570  git status
+  571  git commit -m "l1"
+  572  ls
+  573  git stash list
+  574  git status
+  575  ls
+  576  git stash drop
+  577  git stash list
+  578  git stash pop
+  579  ls
+  580  git stash list
+  581  git status
+  582  git stash save "for l6.txt"
+  583  git stash list
+  584  git status
+  585  ls
+  586  git stash apply stash@{3}
+  587  ls
+  588  git commit -m "l3"
+  589  ls
+  590  git stash
+  591  git stash lsit
+  592  git stash list
+  593  git stash drop stash@{3}
+  594  git stash list
+  595  git stash pop stash@{3}
+  596  git stash list
+  597  git commit -m "adsf"
+  598  clear
+  599  git status list
+  600  git stash list
+  601  clear
+  602  git stash list
+  603  ls
+  604  git stash clear
+  605  git stash list
+  606  cd ..
+  607  clear
+  608  history
+	
