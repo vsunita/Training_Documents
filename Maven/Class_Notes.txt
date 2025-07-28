@@ -1,0 +1,219 @@
+#######################
+Day 12 : 28th July 2025
+#######################	
+
+	Continuous Development :
+	
+	Continuous Integration : 
+	
+	Continuous Delivery/Deployment :
+	
+	- Environments :::
+	
+		Non-Prod Environments						 ==>					Production Environments	
+	
+			- Dev Environments
+			- Build Environments
+			- Testing Environments
+				- QA 
+				- UAT 							===============>			Production Servers
+		
+	- Continuous Integration :	
+		- It is a capability of Application Team to Continuously Integrate the Changes for further Testing and Implementations.
+		
+		- Automate :
+			- Perform Application Build (Process of Compiling the Source Code & Create Artifacts(Binaries - *.war/*.jar/*.dll/*.exec)
+			- Unit Testing 
+			- Promote the Changes to Testing Environments
+			- Send Email Notifications to Concerned Team 	
+
+		- Tools :			
+			- IDEs - Intergrated Development Environments - Eclipse based IDEs, Visual Studio, Visual Studio Code, Pycharm, Intellj
+			- Build Tools - Maven 
+			- Unit Tools - Junit / TestNG				
+			- Jenkins/Ansible/Docker/Kubernetes/Azure Pipelines/AWS CodePipelines
+
+
+	Automate Application Build :::
+	
+		Application Build Tool :
+		
+		Java based web applications :
+		
+			- maven / gradle!
+			
+			- maven spring boot web application framework!
+		
+		
+		Here, Maven is a build tool :
+		
+			- Using Maven, we can compile the source code, unit test the changes, create artifacts
+			
+			
+	Maven Build Tool : 
+	
+		How to Perform Application Build, Unit Testing ?
+		
+			- Using Maven Build Tool 
+				- Maven is Java Application Build Tool
+				- Maven is used to Compile the Source Code 
+				- Create Artifacts 
+				- Perform Unit Testing (20 test cases)
+					(Unit Testing is a process of testing the changes done by the developers)
+				- Maven can verify the Code Coverage 		
+	
+
+		Application Build Process :
+		
+			Input 	: Source Code 	-	*.java  (github repositories)
+			
+			Output 	: Artifacts 	- 	*.war 	(Artifactory Libraries)
+			
+			
+
+	Java Maven Web Application Project :
+	
+	Project Workspace - Folder :
+	
+	Java_Web_App_Project :::
+						
+		- src 
+			main
+				*.java 			# Business Logic
+			test 
+				*.java 			# 20 Test Case 
+		- resources
+			*.html 
+			*.js 
+			*.css 
+		- application.properties 
+		- pom.xml 
+		- target	
+			*.war  
+				
+
+		How Maven Works ??
+		
+		
+		Application Source Code Repository :
+		
+			Developer create POM.XML File to perform Maven Build
+							
+	
+		Maven Project :
+		
+			pom.xml - Project Object Model :
+			
+				- Will be part of the Java Application Project - Source Code Repository
+				- It is used to define the properties of application artifacts 
+				- It is used to define dependencies and the plugins required to perform build/unit-testing
+	
+			Maven Repository :		https://mvnrepository.com/
+			
+			<!-- https://mvnrepository.com/artifact/junit/junit -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.13.1</version>
+				<scope>test</scope>
+			</dependency>
+
+				- Maven Repositories Contains the Maven Dependencies and Plugins 
+				- During Build, Maven refer to this Repositories and Download the Dependencies to perform Application Build, Unit Testing etc...
+				
+				Eg.: 
+				Build Environment (VM) :::
+
+					Build the application	--> Jdk, Maven 
+					
+					Unit Testing - Junit Testing Tool 
+	
+			Maven Goals : 
+				This defines the actions we perform using Maven 
+			
+				● mvn compile 	- to compile the source code
+				● mvn test 		- to compile and execute junit test cases
+				● mvn package 	- to compile, test and create artifacts in the target folder of Project Library
+				● mvn clean 	- to clean the target folder.
+
+				Eg.: 
+				
+				mvn clean package 	
+				
+				
+				
+				
+		Java Web Application Project : - 
+
+		My_Web_App - Folder 
+		
+		Maven Project Structure :::			# Java Maven Desktop/Console/terminal Application;
+
+		MVN_Project1				# Project Name 
+			src 
+				main			# Maintain the source code *.java - Business Logic 
+					*.java
+				test			# Maintain the Test Cases and Test Data - JUnit 
+					*.java
+			target
+				artifacts *.war / *.jar
+			pom.xml 			==> defines the properties of application artifacts, plugins and all the required depedencies
+
+			JRE_Libraries
+			MVN_Libraries	
+
+
+JaCoCo Plugin :::
+
+<!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
+<dependency>
+	<groupId>org.jacoco</groupId>
+	<artifactId>jacoco-maven-plugin</artifactId>
+	<version>0.8.12</version>
+</dependency>
+
+
+		- Automate using Jenkins :
+			- Perform Application Build (Process of Compiling the Source Code & Create Artifacts(Binaries - *.war/*.jar/*.dll/*.exec)
+			- Unit Testing 
+			- Promote the Changes to Testing Environments
+			- Send Email Notifications to Concerned Team 			
+			
+	- Jenkins is Build Orchestration Tool :
+	
+		- Used to Automate Application Builds and Deployments
+		- To Create CI/CD Pipelines 
+	
+
+		
+	Dev Environment :	
+		Create Source Code & Push it to Github Repo.
+		
+		
+		GitHub Server :	Github Repo
+		
+		
+	Build Environment :
+	
+	
+	Stages of CI/CD Pipeline:
+	
+		-> git clone 	===> SCM_Checkout
+		
+		-> Application Build using Maven 
+		
+		-> Unit Testing using Maven &  Junit 
+		
+		-> Create Artifacts using Maven 
+		
+		-> Promote the Application Artifacts to Target Environment => Ansible/SSH Plugins/Docker/Kubernetes
+		
+		-> Send Email Notifications to the Teams using Email Server 
+		
+		Target Environment : QA/UAT/Prod 
+		
+		
+		
+Next :::
+
+	Build Orchestration using Jenkins 
