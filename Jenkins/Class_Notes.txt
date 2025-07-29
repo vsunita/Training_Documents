@@ -1,0 +1,150 @@
+	
+########################
+Day 13 : 29th July 2025
+########################
+
+	Jenkins Build Orchestration Tool ::::
+	
+	
+	Continuous Integration : 			CI
+	
+	Continuous Delivery/Deployment :	Cd/CD
+	
+	
+	Jenkins :::
+	
+	What is Jenkins :::
+	
+		Jenkins is Open-Source Build Orchestration Tool.
+		Used to Automate the End-to-End Application Build and Deployments
+		Using Jenkins we can create CI/CD Pipelines 
+		
+	Jenkins Architecture ::
+	
+		Jenkins is based on Master-Slave Architecture :::
+		
+			Jenkins_Master (VM)				==> To Create Jenkins CI/CD Pipeline Jobs/Projects & Schedule to run in Jenkins_SlaveNode
+											==> Install Git, JDK, Jenkins
+											==> Install Application Build Tools(Maven)
+										
+				Jenkins_SlaveNode1 (VM)		==> Perform Application Builds - compile/create artifacts
+											==> Install Application Build Tools
+						
+			
+	Scenario1 :
+	
+		Client :
+		
+			Java Web Application Development
+			
+			Change Request : 1 or 2 CR per week / 
+			
+			- Less no. of Application Builds and Production release 
+			
+
+			Jenkins_Master (VM)				==> To Create Jenkins CI/CD Pipeline Jobs/Projects & Schedule to run in Jenkins_Master
+											==> Install Git, JDK, Jenkins
+											==> Install Application Build Tools(Maven)
+											
+											
+	Scenario2 :
+	
+		Client :
+		
+			Java, .Net, python, Node-js, Angular, ruby, ......
+			
+			Frequency of Builds and Release are huge
+			
+			
+			Jenkins_Master Np(VM)				==> To Create Jenkins CI/CD Pipeline Jobs/Projects & Schedule to run in Jenkins_SlaveNode
+												==> Install Git, JDK, Jenkins											
+											
+				Jenkins_SlaveNode1 (VM1)		==> Java Build Tools					
+				Jenkins_SlaveNode1 (VM1.1)		==> Java Build 						
+				Jenkins_SlaveNode1 (VM2)		==> Python
+				Jenkins_SlaveNode1 (VM3)		==> .Net
+				Jenkins_SlaveNode1 (VM4)		==> Angular/Nodejs
+				Jenkins_SlaveNode1 (VM5)		==> Ruby
+				
+
+			Target_Server(QA)
+				
+			Target_Server(UAT)
+
+			Target_Server(PROD)
+
+	CI/CD Workflow :::
+	
+		SCM_Checkout 
+		Application Build 
+		Unit Testing 
+		Create Artifacts 
+		Promote the Application to Test Environments
+		Notify 
+		Deploy to Prod 
+		
+
+
+
+	Working with Jenkins :::
+	
+	
+		Developers' Perspective :
+			- All Developers are just the Consumers of Jenkins Tools and Services.
+			- Developers can just execute/cancel/view the Jenkins jobs/Status.		
+		
+		
+		DevOps Perspective :	
+	
+			Roles & Responsibilies of DevOps Team :			
+			
+			Jenkins Administration 
+				- Installation of Jenkins
+				- Global System Configurations 
+				- Plugins Management 
+				- Tools Management 
+				- User Management 					# To enable User Authentication
+				- Security Management				# To enable User Authorization
+				- Credential Management 
+				- Master/Slave Node Configurations
+				- Creation CICD Pipeline Projects 
+				- Onboard Applications to use Jenkins CICD Projects  
+				- Periodic Upgrade of Jenkins and its plugins 
+				- Periodic Backup 
+				- Troubleshooting the Issues!	
+	
+	
+	- Installation of Jenkins :::
+	
+		--> Jenkins can be installed in Linux - Ubuntu Machine AMI - v22.04
+				https://www.jenkins.io/doc/book/installing/
+				
+				https://www.jenkins.io/doc/book/installing/linux/
+				
+			Jenkins run as a service, it runs in default port 8080
+			
+
+	
+	- Global System Configurations ::
+	
+		--> Define the default properties and external resource connections to Jenkins.
+	
+	
+	- Plugins Management ::	
+	
+		--> Enable/Disable/Remove/Install/Upgrade Plugins!
+	
+	
+	
+Next :::
+	
+				- Tools Management 
+				- User Management 					# To enable User Authentication
+				- Security Management				# To enable User Authorization
+				- Credential Management 
+				- Master/Slave Node Configurations
+				- Creation CICD Pipeline Projects 	
+	
+	
+	
+	
