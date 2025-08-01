@@ -249,3 +249,214 @@ Next ::
 	- Master/Slave Node Configurations
 	- Creation CICD Pipeline Projects 	
 	
+########################
+Day 14 : 31st July 2025
+########################	
+	
+				- Tools Management 
+				
+				- User Management 					# To enable User Authentication
+				- Security Management				# To enable User Authorization
+				
+				
+				- Credential Management 			# To save the credentials used to access remote servers
+													# Eg.: Build Servers, DockerHub, Github, Kubernetes Cluster Credentials
+				
+				
+				- Creation Jenkins Projects on Jenkins Master
+	
+				- Master/Slave Node Configurations
+				- Creation CICD Pipeline Projects 	
+	
+	
+	- Creation Jenkins Projects on Jenkins Master ::::
+	
+		- Free Style Project 		
+			- These are based on the Manual Configurations
+			- This is just for internal tools/plugins validations 
+			- Do not use this to onboard the applications.
+			
+			
+			
+		Handling Variables :::
+		
+			- Environment Variables ::
+				- Pre-Defined Variables used by Jenkins.
+				
+					echo "jenkins-${JOB_NAME}-${BUILD_NUMBER}"
+					
+					Syntax: 
+					
+								To Print the value of any variable :
+								
+									- "${var1}"
+					
+			
+			- User Defined Variables ::
+				- To prameterize the Jenkins Projects!
+				- Used to process run-time inputs
+			
+			
+				var1 = "Hello"
+				
+		
+			
+		
+		- Pipeline Project :
+		
+			- It is used to automate CI/CD Pipeline executions 
+			- This can be created using groovy scripts
+			- To Automate Application Builds and Deployments 
+			- This CI/CD Workflow can be automated.
+					CI/CD Workflow :::
+					
+						SCM_Checkout 
+						Application Build 
+						Unit Testing 
+						Create Artifacts 
+						Promote the Application to Test Environments
+						Notify 
+						Deploy to Prod
+						
+			
+			Two Types of Pipeline Projects :
+			
+				- Scripted Pipelines 	
+					- Based on typical groovy scripts
+					
+				
+				- Declarative Pipelines 
+					- This based on the parameters, auto-generate the groovy script to any task.
+					- Snippet generator!
+					- Declarative Pipelines are easy to create and maintain
+			
+						
+		
+	Alternative to Jenkins :
+	
+		gitlab-ci 
+		azPipelines
+		aws CodePipelines 
+		bamboo 
+		
+		-> *.yaml / groovy / shell / python
+		
+
+Next ::
+
+	- Working with Pipeline Projects 
+	- Master/Slave Node Configurations
+	- Creation CICD Pipeline Projects 	
+	
+########################
+Day 15 : 1st August 2025
+########################	
+
+
+	- Working with Pipeline Projects :::
+	
+		Two Types of Pipeline Projects :
+		
+			- Scripted Pipelines 	
+				- Based on typical groovy scripts
+				
+			
+			- Declarative Pipelines 
+				- This based on the parameters, auto-generate the groovy script to any task.
+				- Snippet generator!
+				- Declarative Pipelines are easy to create and maintain
+
+		CI/CD Workflow :::
+		
+			SCM_Checkout 
+			Application Build 
+			Unit Testing 
+			Create Artifacts 
+			Promote the Application to Test Environments
+			Notify 
+			Deploy to Prod 
+		
+		
+Declarative Pipeline :
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM_Checkout from github repository'
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Maven Application Build'
+            }
+        }
+        stage('Deploy to QA Environment') {
+            steps {
+                echo 'Deploy Artifacts to QA Testing Environment'
+            }
+        }
+    }
+}	
+
+
+	- Master/Slave Node Configurations :::
+	
+		Jenkins_Master (VM) 		# Create CICD Pipeline Projects/Jobs and schedule to run in the Nodes
+									# Install git, jdk, jenkins 
+									
+			Jenkins_SlaveNode (VM)	# Perform Application Build 
+									# git, jdk, maven
+									
+									
+			SSH Connection :
+				- Host Name : <private_IP>
+				- User Name :
+				- SSH Keys :
+					- Public key/authorized_keys
+					- Private Key 
+	
+	
+pipeline {
+    agent { label 'slave1' }
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM_Checkout from github repository'
+				git 'https://github.com/PL-DevOps-GenAI-0625/java-webapp-project.git'
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Maven Application Build'
+                sh 'mvn clean package'
+            }
+        }
+        stage('Deploy to QA Environment') {
+            steps {
+                echo 'Deploy Artifacts to QA Testing Environment'
+            }
+        }
+    }
+}
+
+
+Next ::::
+
+
+	
+		Jenkins_Master (VM) 		# Create CICD Pipeline Projects/Jobs and schedule to run in the Nodes
+									# Install git, jdk, jenkins 
+									
+			Jenkins_SlaveNode (VM)	# Perform Application Build 
+									# git, jdk, maven
+																		
+		QA_Test_Server(Target Server - Tomcat WAS)		
+		
+		Build Triggers 
+		
+		Email Notifications
