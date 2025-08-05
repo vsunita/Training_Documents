@@ -1,0 +1,151 @@
+
+########################
+Day 17 : 5th August 2025
+########################
+
+	- Docker Module ::
+	
+	- Containerization :
+	
+		- It is a process of packaging the applications along with its dependencies.
+		
+	- Virtual Machine :::
+	
+		- VM is called as a Hardware Level Virtualization 
+		- VMs are create using Hyervisor
+		- VMs are used to execute Operating System 
+		- VMs will be up and running even if there is not active application/task
+		- VMs consume more space and time to start-up the service.
+	
+	- Container :::
+
+		- Container is called as a OS Level Virtualization 
+		- Containers are create using Container Engine 
+		- Containers are used to execute Application/Task, NOT Operating System
+		- Containers will immediately go to exit state if there is no active Application/Task
+		- Containers consume less space and time to start-up the service.	
+		
+		- Container uses the core properties of underlying Operating System
+			- Core of OS - Kernel 			
+				- Namespaces 
+				- Control Groups 
+				
+			- Container run it is own isolate address space
+			
+		- Containers can reduce the no. of VMs 
+			- We cannot completely elimate VM.
+			
+	
+	- Terminologies ::
+	
+		- Container Engine 		
+					# It is used to create and manage the Container Images and Containers
+		
+		- Container Image		
+					# Container Image is a static file, the defines the properties of application and its dependencies
+					# Container Image composed of various layers created using Dockerfile Instructions
+					# Container Images are Non-Executable
+					
+		- Container	
+					# Containers are the Executable units of Container Images.					
+		
+		- Container Registry:
+					# Container Registry is used to maintain/Version Control the Container Images 
+					# DockerHub is a default Container Registry for Docker Container Engine 
+					https://hub.docker.com/
+					
+					
+					Source Code Repo			Artifactory Library 				Container Registry
+
+					github						jfrog/azArtifacts					DockerHub/ACR/ECR
+								
+					webapp.java_v1.0	==>		webapp.war_snapshot_V1.0	==> 	webapp_img:v1.0
+					webapp.java_v1.1	==>		webapp.war_snapshot_V1.1	==>		webapp_img:v1.1
+					
+		- Container Repositories :
+					# Container Repositories are the subset of Container Registry
+			
+	- Containerization :
+	
+		- It is a process of packaging the applications along with its dependencies.		
+
+		
+	Working with Containers :
+	
+	
+	- Infra-Structure Perspective ::
+		
+		- Here, Using Container we can reduce the no. of VMs 
+		- This we we can reduce the Infra-Structure Cost
+
+		Jenkins_Master (VM)				
+											==> Install Git, JDK, Jenkins											
+										
+			Jenkins_SlaveNode1 (VM1)		==> Java Build Tools					
+			Jenkins_SlaveNode1 (VM1.1)		==> Java Build 						
+			Jenkins_SlaveNode1 (VM2)		==> Python
+			Jenkins_SlaveNode1 (VM3)		==> .Net
+			Jenkins_SlaveNode1 (VM4)		==> Angular/Nodejs
+			Jenkins_SlaveNode1 (VM5)		==> Ruby
+				
+		Using Docker :
+		
+		Jenkins_Master (VM)				
+			Jenkins_Build_Server_Node (VM1)
+				- Install Container Engine
+						Create 	C1			==> Java Build Tools	
+								C2          ==> Java Build 		
+								C3          ==> Python
+								C4          ==> .Net
+								C5          ==> Angular/Nodejs
+								C6          ==> Ruby
+	
+	
+	- Developers/Deployment Perspective ::
+
+	- Containerization :
+	
+		- It is a process of packaging the applications along with its dependencies.
+		
+		Role of Developers :
+		
+			In Dev Environment :
+			
+				Create Source Code 
+				
+				Create Artifacts				mywebapp.war 
+					- jdk17, tomcat:8.0
+
+				Unit Testing 
+				
+					Package the Application : (mywebapp.war,jdk17,tomcat:8.0)	==> Create Application Image : mywebappimg:v1.0
+					
+					Publish the Image - mywebappimg:v1.0 to Container Registry
+				
+				Promote the artifacts to Test Environments
+				
+			
+			QA 			
+				- pull the Application Image : mywebappimg:v1.0 from Container Registry
+				- Create Container out of it.
+
+				
+			UAT	
+				- pull the Application Image : mywebappimg:v1.0 from Container Registry
+				- Create Container out of it. 
+
+
+			PROD 
+				- pull the Application Image : mywebappimg:v1.0 from Container Registry
+				- Create Container out of it. 
+							
+							
+							
+Next ::
+
+	Working with Docker :
+	
+		- Install Docker Container Engine 
+		- Docker Cli Commands 
+	
+	
