@@ -149,3 +149,126 @@ Next ::
 		- Docker Cli Commands 
 	
 	
+########################
+Day 17 : 5th August 2025
+########################	
+	
+	Working with Docker :
+	
+		- Install Docker Container Engine 
+		- Docker Cli Commands 			
+		
+	Installation of Container Engine :
+	
+		apt install docker.io -y			# Install Docker Container Engine in Jenkins Slave-Node/Build Server
+	
+	Docker Cli Commands :	
+	
+		docker --version
+		
+		docker images				# List the Images  
+		
+		docker ps 					# List the Active/running Containers
+		
+		docker ps -a 				# List all the Container (Active & In-Active)		
+		
+		Login to DockerHub Console :
+		
+		Explore the Images!
+		
+		
+		docker pull <image_name>		# To download a latest version of Container Image from DockerHub to Local Machine 
+		
+		docker pull <image_name>:<tag>	# To download a specific version of Container Image from DockerHub to Local Machine 
+		
+		docker run <image_name>			# To create a Container based on Container Image 
+		
+		
+		
+		Three Modes of Container Execution :
+		
+		- Foreground/Attached Mode :
+		
+			docker run <image_name> 
+			
+			Eg.:
+			
+				docker run ubuntu sleep 20
+		
+		- Background/Detached Mode :
+		
+			docker run -d <image_name> 
+			
+			Eg.: 
+			
+				docker run -d ubuntu sleep 20
+		
+		- Interactive Mode :
+		
+			docker run -it <image_name>
+			
+			Eg.: 
+			
+				docker run -it ubuntu bash
+				
+				exit							# Exit/stop the Container  
+		
+		- docker start <Container_ID> 			# Start the Container
+		
+		- Login to Running Container :
+		
+			docker exec -it <Container_ID> bash 
+			
+			Eg.:
+			
+			docker exec -it 092dc9986518 bash
+		
+			exit 								# Log-off from the Container 
+			
+		- docker stop <Container_ID> 			# Stop the Running Container 
+		
+		
+		- Port Mapping/Port Binding :::
+		
+			- It is used to expose the Container Application to Internet.			
+			
+			docker run -it -p 8085:8080 tomcat:8.0 			
+		
+				-p <host_port>:<container_port>
+			
+				Access the Application running inside the container using port mapping :
+			
+				<external_ip_addr>:<host_port>
+				
+				43.204.233.96:8085
+				
+		
+		- Remove Containers & Images from Local Machine!
+		
+			- docker rmi <image_name>			# To Remove Container Images 
+			
+			- docker rm <Container_ID>			# To Remove Containers 
+				
+				
+		- Docker Volume ::::
+		
+			- Container are basically used to execute application/task.			
+			- Containers are actually used to run the stateless application.
+			
+			- This is to maintain pesistant data!
+			
+		3-Tier Application Architecture ????
+		
+			Sign_in Micro-Service
+			
+				- Front-End Layer	==> User Interaction 	=> C1 
+				
+				- Application Layer	==> Business Logic		=> C2 
+				
+				- Back-End Layer	==> Database 			=> C3 
+		
+		
+Next : 
+			Work with Containers 
+			Build Images 
+			Container Orchestration Tools & Concepts	
