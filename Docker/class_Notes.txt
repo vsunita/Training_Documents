@@ -272,3 +272,181 @@ Next :
 			Work with Containers 
 			Build Images 
 			Container Orchestration Tools & Concepts	
+
+
+		
+########################
+Day 19 : 8th August 2025
+########################		
+	
+	Docker Volumes :::
+	
+		- Docker Volume ::::
+		
+			- Container are basically used to execute application/task.			
+			- Containers are actually used to run the stateless application.
+			
+			- This is to maintain pesistant data!	
+			
+		Stateless application :
+		
+			- Application that never retain the state of execution 
+		
+		Stateful application :
+		
+			- To work with the stateful applications, Docker Volumes can be used.
+			
+			
+		docker volume list 					# List the Docker Volumes 
+		
+		docker volume create pl-vol1		# Create a docker volume 
+		
+		docker volume inspect pl-vol1		# Inpect/Get the Properties of Volume
+		
+		docker run -it --mount source=pl-vol1,destination=/pl-vol1 ubuntu bash  
+	
+	
+	Create Container Images :::
+	
+	- docker commit :::
+		
+		=> To Create a New Container Image based on the properties of existing Container.
+		
+			Syntax :
+
+				docker commit <existing_container_id> <dockerhub_repo_name>/New_Image_Name>:<tag_Name>
+				
+				docker commit 83d261074037 loksaieta/pl-mvn-env-img:v1.0
+
+				
+	- docker build :::
+	
+		- To create a new Container Image based on the Dockerfile reference.
+		- Dockerfile composed of Instructions to Create Docker Container Images
+		- Application Developers create the Dockerfile and update in the Source Code Repository. 
+		
+			Syntax :
+			
+			docker build -t <dockerhub_repo_name>/New_Image_Name>:<tag_Name> .		# '.' refers to the Dockerfile path
+			
+			docker build -t loksaieta/pl-mvn-env-img1 .
+			
+		vi Dockerfile 
+		
+			FROM ubuntu 
+			RUN apt update -y 
+			RUN apt install git -y 
+			RUN apt install maven -y
+			
+			
+	- docker push :::
+	
+		- To Publish the Image to Remote DockerHub Repository.
+		
+		
+		- Access Token : PAT 
+		
+		
+			docker login -u loksaieta
+		
+			dcasdfsdsdfsdJY
+			
+			docker push loksaieta/pl-mvn-env-img1
+			
+			docker push loksaieta/pl-mvn-env-img:v1.0
+			
+	
+	Container Orchestration ::
+	
+		
+	
+		- Overview of Docker Compose :::
+		
+			- Used to execute multiple containers as a Service. 
+			- The Container specification will be defined in a manifest file - written using *.yaml script.
+			
+			- Install and configure docker compose 
+				https://docs.docker.com/compose/install/
+				
+				https://docs.docker.com/compose/install/linux/#install-the-plugin-manually
+				
+
+		3-Tier Application Architecture ????
+		
+			Sign_in Micro-Service		
+			
+				- Front-End Layer	==> User Interaction 	=> C1 
+				
+				- Application Layer	==> Business Logic		=> C2 
+				
+				- Back-End Layer	==> Database 			=> C3 
+
+
+				- Front-End Layer	==> User Interaction 	=> C1.1,1.2,1.3 
+				
+				- Application Layer	==> Business Logic		=> C2.1,2.2,2.3
+				
+				- Back-End Layer	==> Database 			=> C3.1,3.2,3.3
+
+		Work with Docker Compose ::
+		
+			Install Docker_Compose
+			
+			https://docs.docker.com/compose/install/linux/
+			
+# Manual Installation of Docker Compose :::
+			
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p $DOCKER_CONFIG/cli-plugins
+curl -SL https://github.com/docker/compose/releases/download/v2.24.0/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+	
+docker compose version
+
+vi docker-compose.yaml
+
+
+
+### Yaml Files are based on Keys & Values -- key:value Pairs
+
+version: '3'
+services:
+  webserv1:
+    image: "tomcat:8.0"
+    ports:
+      - 8098:8080
+  dbserv1:
+    image: "redis:alpine"
+	
+docker compose up 
+
+docker compose down 
+
+				
+		- Overview of Docker Swarm :::
+		
+			- Docker Swarm is one the Container Orchestration Tools.
+			- It is meant only for Docker Containers.
+			- Used to Ensure High Availability of Containers by creating Replicas of Containers.
+			- We cannot Do Auto-Scaling or Load Balancing!
+				
+		- Kubernetes!
+		
+		Docker Container : 
+		
+		AWS :	ECS/ECR/EKS
+		
+		Azure : ACS/ACR/AKS
+		
+		GCP :	GCE/GCR/GKE
+
+		- Kubernetes!
+		
+			- It is a Open-Source Container Orchestration Tool 
+			- Kubernetes is used to Deploy any type of Containers.
+			- It is used to ensure high availability of the Applications/services running thru Containers.
+			- Used to Ensure High Availability of Containers by creating Replicas of Containers.
+			- It supports Auto-Scaling & Load Balancing.		
+			
+			- App Config file - Manifest file - *.yaml / *.json
