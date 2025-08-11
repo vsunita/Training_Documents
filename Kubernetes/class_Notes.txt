@@ -1,0 +1,42 @@
+#########################
+Day 20 : 11th August 2025
+#########################
+		
+		
+	Container Orchestration using Kubernetes ::::
+	
+	- Kubernetes!
+	
+	Docker Container : 
+	
+	AWS :	ECS/ECR/EKS
+	
+	Azure : ACS/ACR/AKS
+	
+	GCP :	GCE/GCR/GKE
+
+	- Kubernetes!
+	
+		- It is a Open-Source Container Orchestration Tool 
+		- Kubernetes is used to Deploy any type of Containers.
+		- It is used to ensure high availability of the Applications/services running thru Containers.
+		- Used to Ensure High Availability of Containers by creating Replicas of Containers.
+		- It supports Auto-Scaling & Load Balancing.		
+		
+		- App Config file - Manifest file - *.yaml / *.json		
+			
+	
+	- Kubernetes Architecture :::
+		
+		Based on:
+		
+			Kubernetes_Control_Plane/Master 
+				- Kubernetes_WorkerNode1,2,3,4,5
+	
+	
+	- Kubernetes Architecture Components :::
+	
+	- Terminologies :::
+	
+	- Kubernetes Concepts :::
+	
