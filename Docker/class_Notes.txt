@@ -450,3 +450,136 @@ docker compose down
 			- It supports Auto-Scaling & Load Balancing.		
 			
 			- App Config file - Manifest file - *.yaml / *.json
+
+#########################
+Day 20 : 11th August 2025
+#########################		
+		
+	- Containerization :::
+		
+		- Docker Build Command to create any Container Image
+		
+		- Create Dockerfile & maintained in the Source Code Repository
+		
+	
+	- Source Code Repo. URL 
+	
+	- Create a CICD Pipeline using Jenkins :
+	
+	- Servers & Tools :
+		
+		Jenkins_Master 			==> Create CICD Pipeline Projects and Schedule to run in the resp. Agents 
+								==> git,jdk,jenkins 
+								
+			Jenkins_Build_Server_Node	==> Perform Application Build 
+										==> git,jdk,maven,docker
+	
+
+	- Add devopsadmin user to docker group :
+	
+		usermod -aG docker devopsadmin
+
+
+		
+	- CICD Pipeline Stages :
+	
+		Input : 	Source Code Repo. URL 
+		
+		Output :	Application Artifacts, Application Container Image, Publish to Container Registry.
+		
+		
+		Pipeline :
+
+			- SCM-Checkout
+			- Application_Build 			*.war 
+			- Application_Image_Build 
+			- Publish Application_Image to Container Registry(DockerHub)
+			
+		Dockerfile :
+
+			FROM ubuntu 
+			RUN apt update -y 
+			RUN apt install git -y 
+			RUN apt install maven -y
+					
+		
+		FROM tomcat:8.0
+		COPY ./target/*.war /usr/local/tomcat/webapps
+		EXPOSE 8080		
+		
+		
+		Dockerfile Instructions :
+		
+		FROM 			# This is identify the based Image 
+		
+		RUN				# To execute any package manager
+
+		COPY 			# To Copy the files from host volume to container volume 
+		
+		CP				# To Copy the files within the Container Volume 
+		
+		ADD 			# To Copy/Download the files from external URLs to Container Volume 
+
+		EXPOSE			# To set the Container Port.
+		
+		WORKDIR			# To Set the Current Working Directory
+		
+		CMD				# To Set the default Start-up Task to start a Container 
+						# The Start-up Task can be Modified at the time of Container Creation 
+						
+		ENTRYPOINT		# To Set the default Start-up Task to start a Container 
+						# The Start-up Task cannot be Modified at the time of Container Creation 						
+		
+
+
+- CICD Pipeline using Docker:
+
+	
+pipeline {
+    agent { label 'slave1' }
+
+	environment {	
+		DOCKERHUB_CREDENTIALS=credentials('dockerloginid')
+	}
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM_Checkout from github repository'
+				git 'https://github.com/PL-DevOps-GenAI-0625/java-webapp-project.git'
+            }
+        }
+		
+        stage('Application Build') {
+            steps {
+                echo 'Perform Maven Application Build'
+                sh 'mvn clean package'
+            }
+        }
+		
+        stage('Build Docker Image') {
+            steps {
+
+				sh "docker build -t loksaieta/pl-javawebappimg ."
+				
+            }
+        }
+		
+		stage('Login2DockerHub') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+		
+		stage('Publish_to_Docker_Registry') {
+			steps {
+				sh "docker push loksaieta/pl-javawebappimg"
+			}
+		}
+
+    }
+}
+		
+
+	
