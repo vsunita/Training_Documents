@@ -39,4 +39,167 @@ Day 20 : 11th August 2025
 	- Terminologies :::
 	
 	- Kubernetes Concepts :::
+
 	
+#########################
+Day 21 : 12th August 2025
+#########################	
+	
+	- Kubernetes Architecture :::
+		
+		Based on:
+		
+			Kubernetes_Control_Plane/Master 
+				- Kubernetes_WorkerNode1,2,3,4,5	
+
+		
+	- Kubernetes!
+	
+		- It is a Open-Source Container Orchestration Tool 
+		- Kubernetes is used to Deploy any type of Containers.
+		- It is used to ensure high availability of the Applications/services running thru Containers.
+		- Used to Ensure High Availability of Containers by creating Replicas of Containers.
+		- It supports Auto-Scaling & Load Balancing.
+		- Self-Healing
+		
+		- App Config file - Manifest file - *.yaml / *.json		
+
+		
+	- Kubernetes Architecture Components :::	
+	
+		- API Server 			# It act as an interface between the User and Kubernetes Master
+		
+		- ETCD					# Is a single point of source for Kubernetes
+		
+		- Scheduler				# Is used to identify the healthy worknode for the pods deployment 
+		
+		- Controller Manager	# To ensure the pods are running in its desired state.
+								# Perform Self-Healing 
+								# Ensure High Availability 
+		
+		
+		- Kubelet				# Is a Kubernetes Agent, that actually deploy the pods 
+
+		- CRI - Container Runtime Interface (Container-D)
+								# Is to connect to Container Registry and download the Container Images 
+								
+		- Kube-Proxy 			# To enable Pod Networking.		
+								# Assign pod IP Address based on the Network Plugins 
+	
+	
+
+	- Terminologies & Kubernetes Concepts :::
+	
+	
+		- Kubernetes_Cluster	# Is a collection of Kubernetes Worker Nodes 
+
+		- Non-Prod Environments :::					=====>				Production Environments :::						
+			
+			Dev 
+			
+			Build 
+			
+			Test :
+				QA 
+				
+				UAT 							==============>				Production Servers1,2,3,4,5
+		
+		
+
+		
+			- Kubernetes_Master :
+			
+					- Kubernetes_WorkerNode1
+					- Kubernetes_WorkerNode2
+					- Kubernetes_WorkerNode3
+					- Kubernetes_WorkerNode4
+					- Kubernetes_WorkerNode5
+				
+		- Pods 					# Atomic Unit of Schedule
+								# Used to Execute Micro-Services 
+								
+		- Kubectl				# Is a command line utility to interact with Kubernetes Master 
+		
+		- Kubernetes Objects :
+		
+			- Pods 					# Atomic Unit of Schedule
+									# Used to Execute Micro-Services 		
+									
+			- Deployment Controller Objects :::
+			
+				- Replicaset				
+				- Deployment 
+				
+			- Kubernetes Services :::
+			
+				- Cluster-IP Service 
+				- NodePort Services 
+				- Load Balancer 
+				
+			- Kubernetes Volumes ::
+			
+				- EmptyDir 
+				- Hostpath Volume 
+				- Persistant Volume 
+				- Persistant Volume Claim
+				
+				
+	
+	- Working with Kubernetes
+	
+		- Install and Configure Kubernetes Cluster.
+
+			- Kubernetes_Control_Plane/Master (VM)
+			
+				- Kubernetes_WorkerNode1 (VM)
+			
+				- Kubernetes_WorkerNode2 (VM)	
+				
+
+	Open-Source Kubernetes :::
+	
+		https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/
+		
+		
+		Kubernetes_Master			(VM)
+			Kubernetes_WorkNode1	(VM)
+			Kubernetes_WorkNode2	(VM)
+			
+			
+		Minikube 		--> 	1 Node Configuration
+			VM -> 
+			
+		Kubeadm -->
+		
+		
+	Installation of Kubernetes using Kubeadm :::	
+	
+		1. Launch 3 VMs on AWS Cloud (Ubuntu v22.04) --> (1 Master Node, 2 WorkerNodes)
+		
+		In all the Nodes(i.e., Master Node and WorkerNodes):
+		
+			2. Allow all traffic for all the nodes - just for this demo
+			3. Change the HostName of all the Nodes
+			4. Disable swap configuration in all the nodes
+			5. Install Docker in all the nodes
+			6. Install CRI - 'Container-D' in all the nodes
+			7. Install Kubeadm,kubelet,kubectl 
+			8. Enable Kubelet	
+		   
+		Only on Master Node:
+		
+			9. Execute Kubeadm Init Command 		# To initialize Kubernetes Master Node
+			10. Enable user Access to Kubernetes
+			11. Install flannel Network plugins for kubeproxy
+
+		Only on WorkerNodes:		
+		
+			12. Execute Kubeadm Join Command 		# To attach the Worknodes with Kubernetes Master Node.
+			
+			
+Next :::
+				
+	- Working with Kubernetes Objects :::
+	
+
+		
