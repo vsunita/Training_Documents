@@ -172,7 +172,7 @@ sudo kubeadm config images pull
 
 #Initialize the cluster
 
-#sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+Use this for production instance : #sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=NumCPU --ignore-preflight-errors=Mem
 
@@ -193,7 +193,8 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 #export KUBECONFIG=/etc/kubernetes/admin.conf
 
-#You should now deploy a pod network to the cluster. Run kubectl apply -f [podnetwork].yaml with one of the options listed at Kubernetes.
+#You should now deploy a pod network to the cluster. Run 
+kubectl apply -f [podnetwork].yaml with one of the options listed at Kubernetes.
 
 #Then you can join any number of worker nodes by running the following on each as root:
 
