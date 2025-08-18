@@ -375,3 +375,73 @@ Day 22 : 13th August 2025
 			Kubernetes_WorkNode1	(VM)
 			Kubernetes_WorkNode2	(VM)
 		
+
+
+
+#########################
+Day 23 : 18th August 2025
+#########################
+
+	Working with Deployment Controller Objects!
+	
+		- Manifest file 
+		
+			- Defines the properties of Deployment Controller Object!
+			
+			
+			Output :
+			
+				- Deployment Object 
+				
+				- ReplicaSet 
+				
+				- Pod Instances!	
+
+
+	- Kubernetes Services :::
+	
+		- Cluster-IP Service 			# Default Service!
+		- NodePort Services 
+		- Load Balancer 
+		
+		- Ingress Controller!
+		
+			- Used to reduce the Load Balancer!
+		
+		
+			- Routing!
+			
+			
+		- Simple Routing 				# meant for static web page 
+		
+		- Host Based Routing 
+		
+		- Path Routing!
+		
+		- Query/Parameter Based Routing!
+		
+		Eg.: 
+		
+			www.google.com !							Load Balancer URL 
+			
+			
+			www.mail.google.com 						# Host Based Routing!			
+			www.maps.google.com 						# Host Based Routing!			
+			www.drive.google.com 						# Host Based Routing!			
+			www.translate.google.com 					# Host Based Routing!
+
+	
+		www.mail.google.com/inbox 						# Path Based Routing!		
+		www.mail.google.com/sent 						# Path Based Routing!		
+		www.mail.google.com/trash 						# Path Based Routing!		
+		www.mail.google.com/compose 					# Path Based Routing!		
+		
+		www.mail.google.com/inbox 						# Path Based Routing!		
+		
+		www.mail.google.com/inbox/email=xyz@gmail.com	# Query/Parameter Based Routing
+		
+		
+		
+		
+		
+	
