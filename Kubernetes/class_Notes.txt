@@ -440,7 +440,197 @@ Day 23 : 18th August 2025
 		
 		www.mail.google.com/inbox/email=xyz@gmail.com	# Query/Parameter Based Routing
 		
+
+
+
+#########################
+Day 24 : 19th August 2025
+#########################
+
+	- Kubernetes Volumes ::
+	
+		- EmptyDir 
 		
+		- Hostpath Volume 					# Can be compared with Docker Volume!
+		
+		- Persistant Volume 
+		
+		- Persistant Volume Claim
+			
+				
+	- Namespace!
+	
+		- Logical Partitioning of Kubernetes Cluster
+		- Namespaces can be created based on Environments, Application Team, Services/Objects 
+		
+		- Working with Namespaces 
+Eg.: 
+
+	kubectl create namespace dev 
+	
+	kubectl get ns 
+	
+root@kmaster-node:~/kubernetes# cat nginx-devpod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  namespace: dev
+  labels:
+    app: nginx
+    tier: dev
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+    ports:
+    - containerPort: 80
+
+
+		
+	- Integrate Kubernetes with Jenkins! 
+	
+		- CICD ---> 
+		
+
+
+
+		- Persistant Volume 
+		
+		- Persistant Volume Claim
+		
+		
+	Pod1	=	App_snapshot_img:v2.0						====>			App_snapshot_img:v2.0	
+	
+	Prod server1,2,3,4,5 : LIVE Passive Server	App_snapshot_img:v1.0
+	
+	
+	Replica:
+	
+	Prod server1,2,3,4,5 : App_snapshot_img:v2.0 - Active Server LIVE
+	
+	
+	Namespace : Active-prod-ns  --> App_snapshot_img:v1.0
+	
+				Active-prod-ns1  --> App_snapshot_img:v2.0
+		
+		
+
+	Integration of Kubernetes with Jenkins!
+	
+	Servers/Tools :
+	
+		Jenkins_Master				# git/jdk/jenkins
+			Jenkins_SlaveNode		# git/jdk/maven/docker
+			
+		Kubernetes_Master			# All Kubernetes Components
+			Kubernetes_WorkerNode1
+			Kubernetes_WorkerNode2
+	
+
+CICD Pipeline using Kubernetes :::
+	
+pipeline {
+    agent { label 'slave1' }
+
+	environment {	
+		DOCKERHUB_CREDENTIALS=credentials('dockerloginid')
+	}
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM_Checkout from github repository'
+				git 'https://github.com/PL-DevOps-GenAI-0625/java-webapp-project.git'
+            }
+        }
+		
+        stage('Application Build') {
+            steps {
+                echo 'Perform Maven Application Build'
+                sh 'mvn clean package'
+            }
+        }
+		
+        stage('Build Docker Image') {
+            steps {
+
+				sh "docker build -t loksaieta/pl-javawebappimg ."
+				
+            }
+        }
+		
+		stage('Login2DockerHub') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+		
+		stage('Publish_to_Docker_Registry') {
+			steps {
+				sh "docker push loksaieta/pl-javawebappimg"
+			}
+		}
+
+		stage('Deploy to Kubernetes') {
+			steps {
+				script {
+					sshPublisher(publishers: [sshPublisherDesc(configName: 'Kubernetes-nonprod', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'kubectl apply -f kdeploy.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.yaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+				}
+			}
+		}
+    }
+}	
+			
+			
+	Using Publish over SSH Plugin, Attach Kubernetes Master to Jenkins Master 
+	
+			- HostName,UserName,SSH_Keys
+
+vi kdeploy.yaml 
+	
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loksai-eta-deploy
+  labels:
+    app: loksai-eta-deploy-lbl
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: loksai-eta-app
+  template:
+    metadata:
+      labels:
+        app: loksai-eta-app
+    spec:
+      containers:
+      - name: loksai-eta-container
+        image: loksaieta/pl-javawebappimg
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loksai-eta-np-service
+  labels:
+    app: loksai-eta-app
+spec:
+  selector:
+    app: loksai-eta-deploy-lbl
+
+  type: NodePort
+  ports:
+  - nodePort: 31028
+    port: 8080
+    targetPort: 8080		
+	
+		
+		
+				
 		
 		
 		
