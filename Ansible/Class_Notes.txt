@@ -151,3 +151,29 @@ Day 26 : 22nd August 2025
 								- apt install docker.io -y 
 	
 	
+
+#########################
+Day 27 : 25th August 2025
+#########################	
+
+
+	- Ansible Handlers :::
+	
+	
+	- Ansible Roles ::::
+	
+		- Are used to organise the Ansible Components!
+		
+		
+		https://galaxy.ansible.com/ui/
+		
+		Setup Tomcat Server!
+		
+		Setup Maven Build Server!
+		
+		
+		ansible-galaxy role install wms_ansible.tomcat
+		
+		Infra-Structure Mgmt Team --> github repos
+		
+		
