@@ -130,9 +130,9 @@ Day 28 : 26th August 2025
 				
 				- Create aws access key and secret key using AWS Security Crential Page.
 				
-					Access Key: sdsdf4
+					Accesskey: sdsdf4
 					
-					Secret Key: qsadfs
+					SecretKey: qsadfs
 					
 					
 		- Terraform Process Workflow :::
