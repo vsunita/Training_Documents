@@ -1,0 +1,80 @@
+#########################
+Day 29 : 28th August 2025
+#########################
+
+
+	Continuous Monitoring using Prometheus/Grafana :::
+	
+	
+	- Production Monitoring Team & Production Support Team :
+	
+	
+	- Continuous Monitoring :::	
+	
+		- Is it ensure High Availability of Production Environments.
+		- To Ensure Buniness Continuity
+		
+			- Infra-Structure Monitoring :::
+				
+				- Tools : Prometheus/Grafana/Dynatrace/Splunk/Nagios
+				
+					-> CPU Utilization 		--> Threshold Limit ==> 75%
+											--> Alert/Notifications based on Threshold limit
+
+					-> Memory Utilization 	--> Threshold Limit ==> 75%
+											--> Alert/Notifications based on Threshold limit
+		
+			- Application Monitoring :
+			
+				- Tools : AppDynamics/DataDog 	
+				
+				
+				
+	- Prometheus/Grafana :::
+		
+		- Prometheus 	::	==> Is a Monitoring Tool.
+								Is used to Monitoring the Infra-Structure
+							
+							
+		- Grafana 		:: 	==> Is a Visualization Tool.
+								Is used to Create Monitoring Dashboards based on the Monitoring Metrics from Monitoring Tools like Prometheus.
+		
+
+		- Architecture of Monitoring Tools/Services
+		
+		- Architecture Components
+		
+			- Monitoring Server 
+			- Target Nodes 
+			- Monitoring Agent - Node Exporter
+			- Retrieval Component used to Pull the metrics from Target Service using Monitoring Agents
+			- Time Series Database 
+	
+	
+	
+	- Managed Services :
+	
+		- AWS			 ==> Cloud watch 
+		- Azure 		 ==> Azure Monitor
+		- GCP 			 ==> G Montior		
+		
+	- Working with Prometheus & Grafana ::
+	
+		- Install and Config Prometheus & Grafana.
+		
+		
+		- PromQL 	==> Query Language.
+		
+		
+	
+Next :::
+	
+	- Kubernetes ::::	
+	
+		- Helm Package Manager for Kubernetes Cluster.
+		
+			- Using Helm we can setup Prometheus & Grafana to Monitor Kubernetes Cluster.
+			
+			- Helm can be install in only on Kubernetes Master.
+		
+	- Project Case Studies using DevOps Tools stack.
