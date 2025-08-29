@@ -77,4 +77,17 @@ Next :::
 			
 			- Helm can be install in only on Kubernetes Master.
 		
-	- Project Case Studies using DevOps Tools stack.
+#########################
+Day 30 : 29th August 2025
+#########################
+
+
+		- Helm Package Manager for Kubernetes Cluster.
+		
+			https://helm.sh/docs/intro/install/
+		
+		
+		- # Prometheus & Grafana on Kubernetes using Helm 
+
+
+
