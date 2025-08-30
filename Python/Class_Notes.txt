@@ -1,0 +1,43 @@
+
+#########################
+Day 30 : 29th August 2025
+#########################
+
+	- Fundamentals of Python Scripting!
+	
+	- DevOps 
+	
+	- Visual Studio Code -->
+	
+	- PyCharm IDE
+	
+	
+	- Working with Python :::
+	
+		- Install Python 
+				https://www.python.org/downloads/
+				
+		- Use IDLE - VSCode 
+		
+		- Python Concepts
+		
+		- Declare Variables in Java/C++ : int x = 5;
+		
+		- In Python x = 5
+		
+		Working with Python :::
+
+			- Install Python 				# https://www.python.org/downloads/
+
+		Open IDLE :
+		
+		Functions :::
+		
+			-	Function is a collection of variables and commands used to perform any task.		
+			
+			>>>print("Hello")
+				Hello 
+				
+		Open VS Code, Create folder --> Create pgm1.py --> Add python script & save 
+		
+		Open Terminal --> py ./pgm1.py

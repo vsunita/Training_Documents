@@ -1,0 +1,254 @@
+#########################
+Day 27 : 25th August 2025
+#########################	
+
+	- Infra-Structure Provisioning using Terraform ::::
+	
+		
+		Dev Environments 
+		
+		Test Environments 
+		
+		
+	- IAC Tool : Terraform 	
+		
+		- Terraform Process Workflow 
+		
+		- Working with Terraform 
+		
+			- Install Terraform in Local Machine
+		
+		- Terraform Process Workflow :::
+		
+			- Identify the Scope of Target Environment (AWS/Azure/GCP)
+			
+			- Write Terraform Scripts based on the Scope 
+			
+			- Perform Terraform Init --> Initialize Terraform Provider to the Terraform Project 
+			
+			- Perform Terraform Plan --> To Preview the Terraform Script
+			
+			- Perform Terraform Apply -> To apply the changes to target Infra-Structure
+			
+	
+	- Working with Terraform :::
+		
+		- About Terraform Registry/Provider 
+		
+				https://registry.terraform.io/browse/providers
+				
+				
+resource "aws_instance" "example" {
+  ami           = "resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
+  instance_type = "t3.micro"
+
+  tags = {
+    Name = "HelloWorld"
+  }
+}
+
+
+
+		- Installation & Configuration of Terraform in Local Machine
+			
+				https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+				
+	Working with Terraform :::
+	
+		- Install Terraform 		--> Local Windows Machine / Linux Machine 
+		
+				https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+				
+				https://developer.hashicorp.com/terraform/install
+				
+
+				Using Manual Approach - Install Terraform on local windows machine 
+				
+					https://developer.hashicorp.com/terraform/install
+				
+					- Download Windows AMD64 Version Terraform -- zipfile 
+						- Right Click and Extract all 
+							- Get the Extracted Terraform Folder 
+								- Get the terraform - binary file 
+								
+					- Setup Environment Variable for terraform binary file 
+						- from windows start menu, search for enviroment variable 
+							- click of edit enviroment variable setting 
+								- find system properties dialog 
+									- select enviroment variables button
+										- On Environment Variables Dialog 
+											- goto to System Variable 
+												- Select path variable and edit 
+													- Click on New 
+														- add C:\Softwares\terraform_1.7.2_windows_amd64
+															- apply the changes and close the settings
+				
+				
+		- Install Visual Studio Code 	- IDE used to create Terraform Projects 
+			
+				https://code.visualstudio.com/download
+				
+		
+		- Open Visual Studio Code - Create Terraform Project 
+
+
+#########################
+Day 28 : 26th August 2025
+#########################	
+
+		- Install Visual Studio Code 	- IDE used to create Terraform Projects 
+			
+				https://code.visualstudio.com/download
+				
+		
+		- Open Visual Studio Code 
+		
+		- Install the Extension/Plugins :
+		
+			Terraform Extension for Visual Studio Code
+		
+		- Create Terraform Project :::
+		
+		
+			- Goto File Menu - Open Folder 
+		
+		
+			- Goto Terminal Menu and Open New Terminal 
+			
+				terraform --version
+				
+				
+		
+		
+		
+		
+		Requirement :
+		
+			- Create AWS Resources(EC2 Instances) using Terraform :
+			
+				- Authentication?
+				
+				- Create aws access key and secret key using AWS Security Crential Page.
+				
+					Accesskey: sdsdf4
+					
+					SecretKey: qsadfs
+					
+					
+		- Terraform Process Workflow :::
+		
+			- Identify the Scope of Target Environment (AWS/Azure/GCP)
+			
+			- Write Terraform Scripts based on the Scope 
+			
+			- Perform Terraform Init --> Initialize Terraform Provider to the Terraform Project 
+			
+			- Perform Terraform Plan --> To Preview the Terraform Script
+			
+			- Perform Terraform Apply -> To apply the changes to target Infra-Structure
+			
+			
+		- Using Terraform :::
+		
+			- Create/Add resources 					====> 		'+'
+			
+			- Destroy/Delete Resources 				====>		'-'
+			
+			- Update/Alter Resources 				====> 		'~'
+			
+			
+	
+		- Terraform State file- :
+			
+			terraform:tfstate 		
+			
+			
+			
+			terraform init 
+			
+			terraform plan 
+			
+			terraform apply
+			
+			terraform apply -auto-approve
+			
+			terraform destroy
+			
+			terraform destroy -auto-approve
+			
+			
+			
+	DevOps ::::
+	
+		CICD Pipeline:
+		
+		Scenario1 :
+		
+			Pipeline1 :
+			
+			- SCM-Checkout --> Build --> Deployed to Test Server 
+			
+
+		Scenario2 :
+
+			Pipeline1 :
+			Source_Code Repo :
+			
+			- SCM-Checkout --> Create New_Test_Server(Terraform) --> Configure New_Test_Server(Ansible)
+
+
+			
+			Pipeline2 :
+			Source_Code Repo :
+			- SCM-Checkout --> Build --> Deployed to New_Test_Server
+
+			
+		Scenario3 :
+		
+			Source_Code Repo :
+			
+				Application Source Code 
+				
+				Terraform Scripts 
+				
+				Ansible Playbooks 
+				
+				
+			Pipeline1:
+			
+				SCM-Checkout --> Application_Build --> Create New_Test_Server(Terraform) --> Configure New_Test_Server(Ansible)
+				
+																												|
+																												|
+																												|
+																						
+																						  Deploy the changes to New_Test_Server
+																						  
+																						  
+																												|
+																												|
+																												|
+																												
+																										Automated Testing 
+																										
+																												|
+																												|
+																												|
+																												
+																										Notify the User  
+																										
+																										Delete the New_Test_Server using Terraform Destroy 
+
+																												|
+																												|
+																												|
+																												
+																											Deploy to Prod				
+				
+				
+				
+			
+			
+Next :::
+
+	Continuous Monitoring using Prometheus/Grafana :::
