@@ -41,3 +41,59 @@ Day 30 : 29th August 2025
 		Open VS Code, Create folder --> Create pgm1.py --> Add python script & save 
 		
 		Open Terminal --> py ./pgm1.py
+
+
+#########################
+Day 31 : 1st Sep. 2025
+#########################
+
+
+	Python :
+	
+		- Sequence Type :
+		
+			String 
+			
+			List 
+			
+			Tuple 
+			
+		- Dictionary
+		
+		
+		- Array : [1,2,3,4,5,6]
+		
+		
+			int a[5] ==> 	[1,2,3,4,5]
+			
+				Index Value: 0,1,2,3,4
+							 
+				index : Starts from 0.
+				
+				a[2] ==> 3 
+			
+			
+			jQ --> JsonQuery Lang ==> 
+			
+			Jenkins Pipeline ==> request API Call ==> json file 
+			
+			==> 
+			
+		Use Case Python/AIOps:
+		
+			=> Any Automated Testing - Result validations/
+									 - Report Generations 
+									 
+			=> WebSite ::
+				=> Test Cases ?
+				
+			Continuous Testing :::
+			
+				==> What are the Test Environments required to run the Test Cases ?
+				
+					- Different OS,Browsers,Platform
+			
+
+			
+
+		
